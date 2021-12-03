@@ -1,0 +1,66 @@
+.subreddit-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.3%;
+    margin-left: 12px;
+}
+
+.subreddit-sidebar-section {
+    background: rgb(255, 255, 255);
+    width: 100%;
+    margin-bottom: 12px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 4px;
+}
+
+.subreddit-sidebar-section-header {
+    padding: 12px;
+    background: rgb(237, 239, 241);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.subreddit-sidebar-section-content {
+    padding: 12px;
+}
+
+.subreddit-sidebar-section-content-description {
+    font-size: 14px;
+}
+
+.subreddit-sidebar-section-content-members {
+    display: flex;
+}
+
+.subreddit-sidebar-section-content-members-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 8px 8px 8px 0;
+    font-size: 12px;
+}
+
+.subreddit-sidebar-section-content-members-number {
+    font-size: 18px;
+}
+
+.subreddit-sidebar-section-content-created {
+    padding: 8px 8px 8px 0;
+    font-size: 14px;
+}
+
+.subreddit-sidebar-section-flairs {
+    display: flex;
+    padding: 8px;
+}
+
+.subreddit-sidebar-section-flair {
+    background: rgb(237, 239, 241);
+    margin: 4px;
+    padding: 4px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+}
