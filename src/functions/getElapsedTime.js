@@ -1,3 +1,4 @@
+// Convert seconds to string showing amount of time passed since then
 const getElapsedTime = startTime => {
     let elapsedTime;
     const secondsPerYear = 365 * 24 * 60 * 60; // 31536000 sec
