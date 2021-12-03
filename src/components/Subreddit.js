@@ -2,19 +2,28 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getFirestore, collection, query, where, doc, getDoc, getDocs } from "firebase/firestore";
 import getElapsedTime from "../functions/getElapsedTime";
-import getVotes from "../functions/getVotes";
+import formatNumber from "../functions/formatNumber";
 import "../styles/Subreddit.css";
+import SubSidebar from "./SubSidebar";
 
 const Subreddit = () => {
 	const { slug } = useParams(); // Get subreddit slug from url
 	const [subreddit, setSubreddit] = useState({
 		title: '',
 		banner: '',
-		icon: ''
+		icon: '',
+		members: 0,
+		color: '',
+		flairs: [],
+		description: '',
+		created: 0
 	});
 	const [posts, setPosts] = useState([]);
-	const { title, banner, icon } = subreddit;
+	const { title, banner, icon, color } = subreddit;
 	const [fetched, setFetched] = useState(false);
+	const colors = {
+		LightBlue: 'rgb(0, 121, 211)'
+	}
 
 	// Get Subreddit & posts from database on componentDidMount & componentDidUpdate
 	useEffect(() => {
@@ -67,7 +76,12 @@ const Subreddit = () => {
 
 	return (
 		<div className="subreddit">
-			<div className="subreddit-banner" style={{background: 'url(' + banner + ')'}} />
+			<div className="subreddit-banner" style={
+				{
+					backgroundImage: 'url(' + banner + ')',
+					backgroundColor: colors[color]
+				}
+			} />
 			<div className="subreddit-header">
 				<div className="subreddit-header-content">
 					<img className="subreddit-icon" url={icon} alt="" />
@@ -86,7 +100,7 @@ const Subreddit = () => {
 									<div className="subreddit-posts-votes-container">
 										<div className="upvote-btn" />
 										<div className="subreddit-posts-votes">
-											{getVotes(post)}
+											{formatNumber(post.upvotes - post.downvotes)}
 										</div>
 										<div className="downvote-btn" />
 									</div>
@@ -116,9 +130,10 @@ const Subreddit = () => {
 					: null
 					}
 				</div>
-				<div className="subreddit-sidebar">
-					<Link to="submit">Submit Link</Link>
-				</div>
+				<SubSidebar subreddit={subreddit} colors={colors} />
+			</div>
+			<div>
+				<Link to="submit">Submit Link</Link>
 			</div>
 		</div>
 	);
