@@ -12,11 +12,6 @@
 	user-select: none;
 }
 
-.header a {
-	color: rgb(255, 255, 255);
-	text-decoration: none;
-}
-
 .header-left, .header-center, .header-right {
 	display: inline-flex;
 	flex-direction: row;
@@ -70,12 +65,14 @@
 	background: rgb(255, 255, 255);
 	color: rgb(0, 121, 211);
 	border: 1px solid rgb(0, 121, 211);
+	cursor: pointer;
 }
 
 .signup-btn {
 	background: rgb(0, 121, 211);
 	color: rgb(255, 255, 255);
 	border: 1px solid rgb(0, 121, 211);
+	cursor: pointer;
 }
 
 .user-btn {

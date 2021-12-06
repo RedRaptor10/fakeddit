@@ -46,7 +46,7 @@ const SubSidebar = ({ subreddit, colors }) => {
                 <div className="subreddit-sidebar-section-flairs">
                     {flairs.map((flair, i) => {
                         return (
-                            <div className="subreddit-sidebar-section-flair">{flair}</div>
+                            <div key={i} className="subreddit-sidebar-section-flair">{flair}</div>
                         );
                     })}
                 </div>

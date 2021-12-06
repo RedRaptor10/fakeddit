@@ -107,7 +107,6 @@
 
 .subreddit-posts-text {
     max-height: 250px;
-    mask-image: linear-gradient(180deg, #000 60%, transparent);
 }
 
 .subreddit-posts-btns-container {

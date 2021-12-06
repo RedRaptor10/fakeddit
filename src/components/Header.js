@@ -1,20 +1,32 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import LogIn from "./LogIn";
+import SignUp from "./SignUp";
 import '../styles/Header.css';
 import toggleNightMode from '../functions/toggleNightMode';
 
 const Header = () => {
+	const [logInForm, setLogInForm] = useState(false);
+	const [signUpForm, setSignUpForm] = useState(false);
 	const [dropdown, setDropdown] = useState(false);
 	const [nightMode, setNightMode] = useState(false);
+
+	const toggleLogInForm = () => {
+		logInForm ? setLogInForm(false) : setLogInForm(true);
+	};
+
+	const toggleSignUpForm = () => {
+		signUpForm ? setSignUpForm(false) : setSignUpForm(true);
+	};
 
 	const toggleDropdown = () => {
 		dropdown ? setDropdown(false) : setDropdown(true);
 	};
 
-	const removeCanvas = () => {
-		const canvas = document.querySelector('.canvas');
-		canvas.remove();
-		setDropdown(false);
+	const remove = () => {
+		if (logInForm) { setLogInForm(false) }
+		if (signUpForm) { setSignUpForm(false) }
+		if (dropdown) { setDropdown(false) }
 	};
 
 	return (
@@ -40,34 +52,40 @@ const Header = () => {
 				</div>
 			</div>
 			<div className="header-right">
-				<div className="header-btn login-btn">Log In</div>
-				<div className="header-btn signup-btn">Sign Up</div>
+				<button className="header-btn login-btn" onClick={toggleLogInForm}>Log In</button>
+				<button className="header-btn signup-btn" onClick={toggleSignUpForm}>Sign Up</button>
 				<div className="user-btn">
 					<div className="user-dropdown-btn" onClick={toggleDropdown}></div>
 					{dropdown ?
 						<div>
-						<div className="canvas" onClick={removeCanvas} />
-						<div className={nightMode ? "user-dropdown-menu user-dropdown-menu-night" : "user-dropdown-menu"}>
-							<div className="dropdown-header">VIEW OPTIONS</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"} onClick={() => { toggleNightMode(nightMode, setNightMode) }}>
-								Night Mode
-								<button className={nightMode ? "night-mode-btn night-mode-btn-night" : "night-mode-btn"} type="button">
-									<div className={nightMode ? "night-mode-btn-switch night-mode-btn-switch-night" : "night-mode-btn-switch"}></div>
-								</button>
+							<div className="canvas" onClick={remove} />
+							<div className={nightMode ? "user-dropdown-menu user-dropdown-menu-night" : "user-dropdown-menu"}>
+								<div className="dropdown-header">VIEW OPTIONS</div>
+								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"} onClick={() => { toggleNightMode(nightMode, setNightMode) }}>
+									Night Mode
+									<button className={nightMode ? "night-mode-btn night-mode-btn-night" : "night-mode-btn"} type="button">
+										<div className={nightMode ? "night-mode-btn-switch night-mode-btn-switch-night" : "night-mode-btn-switch"}></div>
+									</button>
+								</div>
+								<div className="dropdown-header">MORE STUFF</div>
+								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Coins</div>
+								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Premium</div>
+								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Powerups</div>
+								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Talk</div>
+								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Predictions</div>
+								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Help Center</div>
+								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Log In / Sign Up</div>
 							</div>
-							<div className="dropdown-header">MORE STUFF</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Coins</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Premium</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Powerups</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Talk</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Predictions</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Help Center</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Log In / Sign Up</div>
 						</div>
-					</div>
 					: null}
 				</div>
 			</div>
+			{logInForm ?
+				<LogIn remove={remove} toggleLogInForm={toggleLogInForm} toggleSignUpForm={toggleSignUpForm} />
+			: null}
+			{signUpForm ?
+				<SignUp remove={remove} toggleLogInForm={toggleLogInForm} toggleSignUpForm={toggleSignUpForm} />
+			: null}
 		</div>
 	);
 }

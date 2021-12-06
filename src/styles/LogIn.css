@@ -1,0 +1,78 @@
+.log-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.log-in-canvas {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.log-in-form-container {
+    position: absolute;
+    background: rgb(255, 255, 255);
+    width: 40%;
+    border-radius: 4px;
+}
+
+.log-in-form-close {
+    text-align: end;
+}
+
+.log-in-form-close-btn::before {
+    content: "\2715";
+    color: rgb(128, 128, 128);
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.log-in-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 64px;
+    font-size: 12px;
+}
+
+.log-in-form h1 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.log-in-form .link {
+    color: rgb(0, 121, 211);
+    cursor: pointer;
+}
+
+.log-in-form .link:hover {
+    text-decoration: underline;
+}
+
+.log-in-form input, .log-in-form-submit-btn {
+    margin-top: 12px;
+    width: 40%;
+    height: 32px;
+}
+
+.log-in-form-submit-btn {
+    background: rgb(0, 121, 211);
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 12px;
+}
+
+.log-in-form-bottom {
+    padding-top: 12px;
+}
+
+.log-in-form-bottom div {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
