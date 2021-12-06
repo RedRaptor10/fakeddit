@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LogIn from "./LogIn";
-import SignUp from "./SignUp";
 import '../styles/Header.css';
 import toggleNightMode from '../functions/toggleNightMode';
 
@@ -81,10 +80,10 @@ const Header = () => {
 				</div>
 			</div>
 			{logInForm ?
-				<LogIn remove={remove} toggleLogInForm={toggleLogInForm} toggleSignUpForm={toggleSignUpForm} />
+				<LogIn remove={remove} toggleLogInForm={toggleLogInForm} toggleSignUpForm={toggleSignUpForm} signUp={false} />
 			: null}
 			{signUpForm ?
-				<SignUp remove={remove} toggleLogInForm={toggleLogInForm} toggleSignUpForm={toggleSignUpForm} />
+				<LogIn remove={remove} toggleLogInForm={toggleLogInForm} toggleSignUpForm={toggleSignUpForm} signUp={true} />
 			: null}
 		</div>
 	);
