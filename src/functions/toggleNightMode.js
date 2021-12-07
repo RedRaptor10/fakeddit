@@ -5,8 +5,8 @@ const toggleNightMode = (nightMode, setNightMode) => {
 	const header = document.querySelector('.header');
 	const headerTitle = document.querySelector('.header-title');
 	const searchField = document.querySelector('.search-field');
-	const loginBtn = document.querySelector('.login-btn');
-	const signupBtn = document.querySelector('.signup-btn');
+	const logInBtn = document.querySelector('.login-btn');
+	const signUpBtn = document.querySelector('.signup-btn');
 	const userBtn = document.querySelector('.user-btn');
 	const dropdownMenu = document.querySelector('.user-dropdown-menu');
 	const dropdownItem = document.querySelectorAll('.dropdown-item');
@@ -22,12 +22,16 @@ const toggleNightMode = (nightMode, setNightMode) => {
 		searchField.style.background = 'rgb(246, 247, 248)';
 		searchField.style.color = 'rgb(0, 0, 0)';
 		searchField.style.border = '1px solid rgb(237, 239, 241)';
-		loginBtn.style.background = 'rgb(255, 255, 255)';
-		loginBtn.style.color = 'rgb(0, 121, 211)';
-		loginBtn.style.border = '1px solid rgb(0, 121, 211)';
-		signupBtn.style.background = 'rgb(0, 121, 211)';
-		signupBtn.style.color = 'rgb(255, 255, 255)';
-		signupBtn.style.border = '1px solid rgb(0, 121, 211)';
+		if (logInBtn) {
+			logInBtn.style.background = 'rgb(255, 255, 255)';
+			logInBtn.style.color = 'rgb(0, 121, 211)';
+			logInBtn.style.border = '1px solid rgb(0, 121, 211)';
+		}
+		if (signUpBtn) {
+			signUpBtn.style.background = 'rgb(0, 121, 211)';
+			signUpBtn.style.color = 'rgb(255, 255, 255)';
+			signUpBtn.style.border = '1px solid rgb(0, 121, 211)';
+		}
 		userBtn.style.color = 'rgb(0, 0, 0)';
 		dropdownMenu.style.background = 'rgb(255, 255, 255)';
 		dropdownItem.forEach(i => { i.style.color = 'rgb(0, 0, 0)' });
@@ -42,12 +46,16 @@ const toggleNightMode = (nightMode, setNightMode) => {
 		searchField.style.background = 'rgb(39, 39, 41)';
 		searchField.style.color = 'rgb(215, 218, 220)';
 		searchField.style.border = '1px solid rgb(52, 53, 54)';
-		loginBtn.style.background = 'rgb(26, 26, 27)';
-		loginBtn.style.color = 'rgb(215, 218, 220)';
-		loginBtn.style.border = '1px solid rgb(215, 218, 220)';
-		signupBtn.style.background = 'rgb(215, 218, 220)';
-		signupBtn.style.color = 'rgb(26, 26, 27)';
-		signupBtn.style.border = '1px solid rgb(215, 218, 220)';
+		if (logInBtn) {
+			logInBtn.style.background = 'rgb(26, 26, 27)';
+			logInBtn.style.color = 'rgb(215, 218, 220)';
+			logInBtn.style.border = '1px solid rgb(215, 218, 220)';
+		}
+		if (signUpBtn) {
+			signUpBtn.style.background = 'rgb(215, 218, 220)';
+			signUpBtn.style.color = 'rgb(26, 26, 27)';
+			signUpBtn.style.border = '1px solid rgb(215, 218, 220)';
+		}
 		userBtn.style.color = 'rgb(215, 218, 220)';
 		dropdownMenu.style.background = 'rgb(26, 26, 27)';
 		dropdownItem.forEach(i => { i.style.color = 'rgb(215, 218, 220)' });
