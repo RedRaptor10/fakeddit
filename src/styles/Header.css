@@ -12,6 +12,10 @@
 	user-select: none;
 }
 
+.header a {
+	text-decoration: none;
+}
+
 .header-left, .header-center, .header-right {
 	display: inline-flex;
 	flex-direction: row;
@@ -48,6 +52,10 @@
 
 .search-field:hover, .search-field:focus {
 	background: rgb(255, 255, 255);
+}
+
+.header-btns-container {
+	display: flex;
 }
 
 .header-btn {
