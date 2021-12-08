@@ -99,15 +99,8 @@ const LogIn = ({setLogInForm, setSignUpForm, logIn}) => {
                 // Create Auth Account
                 const auth = getAuth();
                 createUserWithEmailAndPassword(auth, form.email, form.password)
-                .then(() => {
-                    createAccount()
-                    .then(() => {
-                        setSignUpForm(false);
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                    });
-                })
+                .then(createAccount)
+                .then(() => { setSignUpForm(false); })
                 .catch((error) => {
                     if (error.code === 'auth/weak-password') {
                         setError('Password must have at least 6 characters.');
