@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getFirestore, collection, query, where, doc, getDoc, getDocs } from "firebase/firestore";
 import getElapsedTime from "../functions/getElapsedTime";
 import formatNumber from "../functions/formatNumber";
 import "../styles/Subreddit.css";
 import SubSidebar from "./SubSidebar";
 
-const Subreddit = () => {
+const Subreddit = ({loggedIn}) => {
 	const { slug } = useParams(); // Get subreddit slug from url
 	const [subreddit, setSubreddit] = useState({
 		title: '',
@@ -56,6 +56,11 @@ const Subreddit = () => {
 					const postObj = post.data();
 					postObj.id = post.id; // Add document id to post object
 					postsArray.push(postObj);
+				});
+
+				// Sort posts array by date (desc)
+				postsArray.sort((a, b) => {
+					return b.date - a.date;
 				});
 
 				setPosts(postsArray.slice());
@@ -130,10 +135,7 @@ const Subreddit = () => {
 					: null
 					}
 				</div>
-				<SubSidebar subreddit={subreddit} colors={colors} />
-			</div>
-			<div>
-				<Link to="submit">Submit Link</Link>
+				<SubSidebar loggedIn={loggedIn} subreddit={subreddit} colors={colors} />
 			</div>
 		</div>
 	);
