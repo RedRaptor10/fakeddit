@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import secondsToDate from "../functions/secondsToDate";
 import formatNumber from "../functions/formatNumber";
 import "../styles/SubSidebar.css";
 
-const SubSidebar = ({ subreddit, colors }) => {
+const SubSidebar = ({ loggedIn, subreddit, colors }) => {
     const { description, members, color, flairs, created } = subreddit;
 
     return (
@@ -32,6 +33,20 @@ const SubSidebar = ({ subreddit, colors }) => {
                     <div className="subreddit-sidebar-section-content-created">
                         Created {secondsToDate(created.seconds)}
                     </div>
+                    {loggedIn ?
+                        <div className="subreddit-sidebar-section-create">
+                            <Link to="submit">
+                                <div className="subreddit-sidebar-section-create-btn" style={
+                                    color ? {
+                                        background: colors[color],
+                                        color: 'rgb(255, 255, 255)'
+                                    } : null
+                                }>
+                                    Create Post
+                                </div>
+                            </Link>
+                        </div>
+                    : null}
                 </div>
             </div>
             <div className="subreddit-sidebar-section">

@@ -51,6 +51,18 @@
     font-size: 14px;
 }
 
+.subreddit-sidebar-section-create a {
+    text-decoration: none;
+}
+
+.subreddit-sidebar-section-create-btn {
+    border-radius: 4px;
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 .subreddit-sidebar-section-flairs {
     display: flex;
     padding: 8px;
