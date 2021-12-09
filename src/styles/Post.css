@@ -1,0 +1,101 @@
+.post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.post-canvas {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.post-main {
+    position: fixed;
+    background: rgb(218, 224, 230);
+    width: 75%;
+    height: 100vh;
+}
+
+.post-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+	height: 48px;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    width: 100%;
+    height: 32px;
+}
+
+.post-header-inner {
+    display: flex;
+    align-items: center;
+    width: 75%;
+    height: 100%;
+}
+
+.post-votes-container {
+    display: flex;
+    align-items: center;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 12px;
+}
+
+.post-upvote-btn, .post-downvote-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.post-upvote-btn:hover {
+    background: rgba(26, 26, 27, 0.1);
+    color: rgb(204, 55, 0);
+}
+
+.post-downvote-btn:hover {
+    background: rgba(26, 26, 27, 0.1);
+    color: rgb(0, 121, 211);
+}
+
+.post-upvote-btn::before {
+    content: "\21e7";
+}
+
+.post-downvote-btn::before {
+    content: "\21e9";
+}
+
+.post-title {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.post-close-btn-container {
+    margin-left: auto;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.post-close-btn::before {
+    content: "\2715";
+    color: rgb(255, 255, 255);
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.post-body {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    padding-top: 32px;
+}
+
+.post-content-container {
+    width: 66.6%;
+}

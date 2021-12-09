@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Outlet } from "react-router-dom";
 import { getFirestore, collection, query, where, doc, getDoc, getDocs } from "firebase/firestore";
-import getElapsedTime from "../functions/getElapsedTime";
-import formatNumber from "../functions/formatNumber";
-import "../styles/Subreddit.css";
+import PostBox from "./PostBox";
 import SubSidebar from "./SubSidebar";
+import "../styles/Subreddit.css";
 
 const Subreddit = ({loggedIn}) => {
 	const { slug } = useParams(); // Get subreddit slug from url
@@ -20,7 +19,6 @@ const Subreddit = ({loggedIn}) => {
 	});
 	const [posts, setPosts] = useState([]);
 	const { title, banner, icon, color } = subreddit;
-	const [fetched, setFetched] = useState(false);
 	const colors = {
 		LightBlue: 'rgb(0, 121, 211)'
 	}
@@ -28,23 +26,18 @@ const Subreddit = ({loggedIn}) => {
 	// Get Subreddit & posts from database on componentDidMount & componentDidUpdate
 	useEffect(() => {
 		const getSubreddit = async () => {
-			try {
-				const db = getFirestore();
-				const docRef = doc(db, "subreddits", slug);
-				const docSnap = await getDoc(docRef);
+			const db = getFirestore();
+			const docRef = doc(db, "subreddits", slug);
+			const docSnap = await getDoc(docRef);
 
-				if (docSnap.exists()) {
-					return docSnap.data();
-				} else {
-					return null;
-				}
-			} catch (error) {
-				console.log(error);
+			if (docSnap.exists()) {
+				return docSnap.data();
+			} else {
+				return null;
 			}
 		};
 
 		const getPosts = async () => {
-			try {
 				const db = getFirestore();
 				const postsRef = collection(db, "posts");
 				const q = query(postsRef, where("subreddit", "==", slug));
@@ -64,20 +57,19 @@ const Subreddit = ({loggedIn}) => {
 				});
 
 				setPosts(postsArray.slice());
-			} catch (error) {
-				console.log(error);
-			}
 		};
 
 		// Get Subreddit data from Promise
-		if (!fetched) {
-			getSubreddit().then(data => {
-				setSubreddit(data);
-			});
-			getPosts();
-			setFetched(true);
-		}
-	}, [fetched, slug]);
+		getSubreddit()
+		.then((data) => {
+			setSubreddit(data);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+
+		getPosts();
+	}, [slug]);
 
 	return (
 		<div className="subreddit">
@@ -96,40 +88,12 @@ const Subreddit = ({loggedIn}) => {
 					</div>
 				</div>
 			</div>
-			<div className="subreddit-main">
+			<div className="subreddit-body">
 				<div className="subreddit-posts-container">
 					{posts.length !== 0 ?
 						posts.map((post) => {
 							return (
-								<div key={post.id} className="subreddit-posts">
-									<div className="subreddit-posts-votes-container">
-										<div className="upvote-btn" />
-										<div className="subreddit-posts-votes">
-											{formatNumber(post.upvotes - post.downvotes)}
-										</div>
-										<div className="downvote-btn" />
-									</div>
-									<div className="subreddit-posts-details">
-										<div className="subreddit-posts-meta">
-											<span className="subreddit-posts-author">Posts by u/{post.author}</span>
-											<span className="subreddit-posts-date">{getElapsedTime(post.date.seconds)}</span>
-										</div>
-										<div className="subreddit-posts-title">
-											<h3>{post.title}</h3>
-										</div>
-										<div className="subreddit-posts-link">
-											<a href={post.link}>{post.link}</a>
-										</div>
-										<div className="subreddit-posts-text">
-											{post.text}
-										</div>
-										<div className="subreddit-posts-btns-container">
-											<div className="subreddit-posts-btn">
-												{post.comments} comments
-											</div>
-										</div>
-									</div>
-								</div>
+								<PostBox post={post} key={post.id} />
 							);
 						})
 					: null
@@ -137,6 +101,7 @@ const Subreddit = ({loggedIn}) => {
 				</div>
 				<SubSidebar loggedIn={loggedIn} subreddit={subreddit} colors={colors} />
 			</div>
+			<Outlet /> {/* Nested route for Post component (NOTE: Cannot pass props through Outlet in React v6) */}
 		</div>
 	);
 }

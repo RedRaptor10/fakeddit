@@ -9,6 +9,7 @@ import Home from "./Home";
 import Footer from "./Footer";
 import Subreddit from "./Subreddit";
 import Submit from "./Submit";
+import Post from "./Post";
 import "../styles/index.css";
 
 const App = () => {
@@ -52,7 +53,10 @@ const App = () => {
 			<Header loggedIn={loggedIn} />
 			<Routes>
 				<Route exact path="/" element={<Home />} />
-				<Route exact path="/r/:slug" element={<Subreddit loggedIn={loggedIn} />} />
+				<Route path="/r/:slug" element={<Subreddit loggedIn={loggedIn} />}>
+					{/* Nested route for Post component using relative path */}
+					<Route exact path="comments/:postId/:postTitle" element={<Post />} />
+				</Route>
 				<Route exact path="/r/:slug/submit" element={<Submit loggedIn={loggedIn} user={user} />} />
 			</Routes>
 			<Footer />
