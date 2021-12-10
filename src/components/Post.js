@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import PostBox from "./PostBox";
+import Comments from "./Comments";
 import SubSidebar from "./SubSidebar";
 import formatNumber from "../functions/formatNumber";
 import "../styles/Post.css";
@@ -108,6 +109,7 @@ const Post = ({loggedIn}) => {
                 <div className="post-body">
                     <div className="post-content-container">
                         <PostBox post={post} />
+                        <Comments postId={postId} />
                     </div>
                     <SubSidebar loggedIn={loggedIn} subreddit={subreddit} colors={colors} />
                 </div>

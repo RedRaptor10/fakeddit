@@ -11,14 +11,14 @@ const PostBox = ({post}) => {
         <div className="post-box">
             <div className="post-box-votes-container">
                 <div className="post-box-upvote-btn" />
-                <div className="post-box-posts-votes">
+                <div className="post-box-votes">
                     {formatNumber(post.upvotes - post.downvotes)}
                 </div>
                 <div className="post-box-downvote-btn" />
             </div>
             <div className="post-box-details">
                 <div className="post-box-meta">
-                    <span className="post-box-author">Posts by u/{post.author}</span>
+                    <span className="post-box-author">Posted by u/{post.author}</span>
                     <span className="post-box-date">{getElapsedTime(post.date.seconds)}</span>
                 </div>
                 <div className="post-box-title">

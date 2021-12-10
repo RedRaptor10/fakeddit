@@ -97,5 +97,14 @@
 }
 
 .post-content-container {
+    background: rgb(255, 255, 255);
     width: 66.6%;
+}
+
+.post-content-container .post-box {
+    border: 0;
+}
+
+.post-content-container .post-box-votes-container {
+    background: none;
 }
