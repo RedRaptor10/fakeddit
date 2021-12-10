@@ -54,22 +54,19 @@ const Header = ({loggedIn}) => {
 		};
 
 		// Delete Account
-		const deleteAccount = async () => {
-			getDocId().then((id) => {
-				deleteDocFields(id)
-				.then(() => { deleteDocument(id) })
-				.then(() => { deleteUser(auth.currentUser) })
-				.then(() => {
-					setDropdown(false);
-					console.log('Successfully deleted account');
-				})
-				.catch((error) => {
-					console.log(error);
-				});
+		getDocId()
+		.then((id) => {
+			deleteDocFields(id)
+			.then(() => { deleteDocument(id) })
+			.then(() => { deleteUser(auth.currentUser) })
+			.then(() => {
+				setDropdown(false);
+				console.log('Successfully deleted account');
+			})
+			.catch((error) => {
+				console.log(error);
 			});
-		};
-
-		deleteAccount();
+		});
 	}
 
 	return (
