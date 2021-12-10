@@ -7,6 +7,7 @@ const Submit = ({loggedIn, user}) => {
 	const [title, setTitle] = useState('');
 	const [text, setText] = useState('');
 	const [submitted, setSubmitted] = useState(false);
+	const [error, setError] = useState('');
 
 	// Dynamically change state from title input
 	const handleTitle = event => {
@@ -18,7 +19,7 @@ const Submit = ({loggedIn, user}) => {
 		setText(event.target.value);
 	};
 
-	const submitPost = async (title, text) => {
+	const submitPost = async () => {
 		if (title !== '' && text !== '') {
 			const db = getFirestore();
 			await addDoc(collection(db, "posts"), {
@@ -40,18 +41,6 @@ const Submit = ({loggedIn, user}) => {
 		}
 	};
 
-	const setError = message => {
-        let errorMsg = document.querySelector('.error-msg');
-        if (!errorMsg) {
-            const submitBtn = document.querySelector('.post-submit-btn');
-            errorMsg = document.createElement('div');
-            errorMsg.classList.add('error-msg');
-            submitBtn.parentNode.insertBefore(errorMsg, submitBtn);
-        }
-
-        errorMsg.innerHTML = message;
-    };
-
 	return (
 		<div className="submit">
 			{loggedIn ?
@@ -67,7 +56,10 @@ const Submit = ({loggedIn, user}) => {
 					<div>
 						<textarea onChange={handleText} />
 					</div>
-					<button className="post-submit-btn" onClick={() => { submitPost(title, text) }}>Post</button>
+					{error !== '' ?
+                        <div className="error-msg">{error}</div>
+                    : null}
+					<button className="post-submit-btn" onClick={submitPost}>Post</button>
 				</div>
 			: null}
 		</div>
