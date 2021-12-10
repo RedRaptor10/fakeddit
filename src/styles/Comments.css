@@ -1,0 +1,100 @@
+.comments {
+    padding: 12px;
+}
+
+.comment-container {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.comment-sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-collapsed {
+    flex-direction: row;
+}
+
+.comment-expand::before {
+    content: "\21a8";
+    color: rgb(0, 121, 211);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.comment-avatar {
+    background: rgb(218, 224, 230);
+    width: 32px;
+    min-height: 32px;
+    border-radius: 50%;
+}
+
+.comment-threadline {
+    display: block;
+    width: 16px;
+    height: 100%;
+    margin-top: 8px;
+    border-right: 2px solid rgb(218, 224, 230);
+    cursor: pointer;
+}
+
+.comment-threadline:hover {
+    border-right: 2px solid rgb(0, 121, 211);
+}
+
+.comment-details {
+    padding-left: 8px;
+}
+
+.comment-meta {
+    display: flex;
+    font-size: 12px;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-date {
+    color: rgb(120, 124, 126);
+    margin-left: 8px;
+}
+
+.comment-text {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.comment-votes-container {
+    display: flex;
+    align-items: center;
+}
+
+.comment-votes {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.comment-upvote-btn, .comment-downvote-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.comment-upvote-btn:hover {
+    background: rgba(26, 26, 27, 0.1);
+    color: rgb(204, 55, 0);
+}
+
+.comment-downvote-btn:hover {
+    background: rgba(26, 26, 27, 0.1);
+    color: rgb(0, 121, 211);
+}
+
+.comment-upvote-btn::before {
+    content: "\21e7";
+}
+
+.comment-downvote-btn::before {
+    content: "\21e9";
+}
