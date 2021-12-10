@@ -108,3 +108,7 @@
 .post-content-container .post-box-votes-container {
     background: none;
 }
+
+.reply-sidebar {
+    width: 64px;
+}

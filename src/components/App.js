@@ -55,7 +55,7 @@ const App = () => {
 				<Route exact path="/" element={<Home />} />
 				<Route path="/r/:slug" element={<Subreddit loggedIn={loggedIn} />}>
 					{/* Nested route for Post component using relative path */}
-					<Route exact path="comments/:postId/:postTitle" element={<Post />} />
+					<Route exact path="comments/:postId/:postTitle" element={<Post loggedIn={loggedIn} user={user} />} />
 				</Route>
 				<Route exact path="/r/:slug/submit" element={<Submit loggedIn={loggedIn} user={user} />} />
 			</Routes>

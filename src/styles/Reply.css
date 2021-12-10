@@ -1,0 +1,25 @@
+.reply-form-post {
+    margin-left: 64px;
+}
+
+.reply-input {
+    display: block;
+    background: rgb(218, 224, 230);
+    width: 90%;
+    border: 0;
+    border-radius: 4px;
+    resize: none;
+}
+
+.reply-submit-btn {
+    background: rgb(0, 121, 211);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 4px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}

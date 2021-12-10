@@ -3,7 +3,7 @@ import { getFirestore, collection, query, where, getDocs } from "firebase/firest
 import Comment from "./Comment";
 import "../styles/Comments.css";
 
-const Comments = ({loggedIn, postId}) => {
+const Comments = ({loggedIn, user, post, setPost}) => {
     const [comments, setComments] = useState([]);
 
 	// Get comments from database on componentDidMount & componentDidUpdate
@@ -13,7 +13,7 @@ const Comments = ({loggedIn, postId}) => {
 		const getComments = async () => {
 				const db = getFirestore();
 				const commentsRef = collection(db, "comments");
-				const q = query(commentsRef, where("postId", "==", postId));
+				const q = query(commentsRef, where("postId", "==", post.id));
 				const querySnap = await getDocs(q);
 				const commentsArray = [];
 
@@ -72,13 +72,13 @@ const Comments = ({loggedIn, postId}) => {
         .catch((error) => {
             console.log(error);
         });
-    }, [postId]);
+    }, [post]);
 
     return (
         <div className="comments">
             {comments.map((comment) => {
                 return (
-                    <Comment comment={comment} key={comment.id} />
+                    <Comment key={comment.id} loggedIn={loggedIn} user={user} comment={comment} post={post} setPost={setPost} />
                 );
             })}
         </div>

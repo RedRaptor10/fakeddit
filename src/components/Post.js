@@ -2,24 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import PostBox from "./PostBox";
+import Reply from "./Reply";
 import Comments from "./Comments";
 import SubSidebar from "./SubSidebar";
 import formatNumber from "../functions/formatNumber";
 import "../styles/Post.css";
 
-const Post = ({loggedIn}) => {
+const Post = ({loggedIn, user}) => {
     const { slug, postId } = useParams(); // Get post id from url
-    const [subreddit, setSubreddit] = useState({
-		title: '',
-		banner: '',
-		icon: '',
-		members: 0,
-		color: '',
-		flairs: [],
-		description: '',
-		created: 0
-	});
     const [post, setPost] = useState({
+        id: '',
         author: '',
         comments: 0,
         date: '',
@@ -31,24 +23,24 @@ const Post = ({loggedIn}) => {
         upvotes: 0
     });
     const { downvotes, title, upvotes } = post;
+
+    // (NOTE: Props redefined because cannot pass props through Outlet in React v6)
+    const [subreddit, setSubreddit] = useState({
+		title: '',
+		banner: '',
+		icon: '',
+		members: 0,
+		color: '',
+		flairs: [],
+		description: '',
+		created: 0
+    });
     const colors = {
 		LightBlue: 'rgb(0, 121, 211)'
 	};
 
     // Get Post from database on componentDidMount & componentDidUpdate
     useEffect(() => {
-        const getSubreddit = async () => {
-			const db = getFirestore();
-			const docRef = doc(db, "subreddits", slug);
-			const docSnap = await getDoc(docRef);
-
-			if (docSnap.exists()) {
-				return docSnap.data();
-			} else {
-				return null;
-			}
-        };
-
         const getPost = async () => {
 			const db = getFirestore();
 			const docRef = doc(db, "posts", postId);
@@ -63,14 +55,17 @@ const Post = ({loggedIn}) => {
 			}
         };
 
-        // Get Subreddit data from Promise
-		getSubreddit()
-		.then(data => {
-			setSubreddit(data);
-		})
-		.catch((error) => {
-			console.log(error);
-		});
+        const getSubreddit = async () => {
+			const db = getFirestore();
+			const docRef = doc(db, "subreddits", slug);
+			const docSnap = await getDoc(docRef);
+
+			if (docSnap.exists()) {
+				return docSnap.data();
+			} else {
+				return null;
+			}
+        };
 
         // Get Post data from Promise
         getPost()
@@ -80,6 +75,15 @@ const Post = ({loggedIn}) => {
         .catch((error) => {
             console.log(error);
         });
+
+        // Get Subreddit data from Promise
+		getSubreddit()
+		.then(data => {
+			setSubreddit(data);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
     }, [slug, postId]);
 
     return (
@@ -109,7 +113,8 @@ const Post = ({loggedIn}) => {
                 <div className="post-body">
                     <div className="post-content-container">
                         <PostBox post={post} />
-                        <Comments postId={postId} />
+                        <Reply loggedIn={loggedIn} user={user} post={post} setPost={setPost} parent='' />
+                        <Comments loggedIn={loggedIn} user={user} post={post} setPost={setPost} />
                     </div>
                     <SubSidebar loggedIn={loggedIn} subreddit={subreddit} colors={colors} />
                 </div>

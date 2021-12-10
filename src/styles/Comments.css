@@ -1,4 +1,5 @@
 .comments {
+    width: 100%;
     padding: 12px;
 }
 
@@ -43,6 +44,10 @@
     border-right: 2px solid rgb(0, 121, 211);
 }
 
+.comment {
+    width: 100%;
+}
+
 .comment-details {
     padding-left: 8px;
 }
@@ -56,6 +61,14 @@
     font-weight: bold;
 }
 
+.comment-author-poster {
+    color: rgb(0, 0, 128);
+}
+
+.comment-author-user {
+    color: rgb(0, 128, 0);
+}
+
 .comment-date {
     color: rgb(120, 124, 126);
     margin-left: 8px;
@@ -64,6 +77,11 @@
 .comment-text {
     padding-top: 4px;
     padding-bottom: 4px;
+}
+
+.comment-btns-container {
+    display: flex;
+    align-items: center;
 }
 
 .comment-votes-container {
@@ -97,4 +115,14 @@
 
 .comment-downvote-btn::before {
     content: "\21e9";
+}
+
+.comment-btn {
+    font-size: 12px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.comment-btn:hover {
+    background: rgba(26, 26, 27, 0.1);
 }
