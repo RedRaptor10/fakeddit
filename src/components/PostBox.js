@@ -118,7 +118,6 @@ const PostBox = ({user, setUser, post, setPost, posts, setPosts}) => {
                 comments: deleteField(),
 				date: deleteField(),
                 downvotes: deleteField(),
-                link: deleteField(),
                 subreddit: deleteField(),
                 text: deleteField(),
                 title: deleteField(),
@@ -169,9 +168,6 @@ const PostBox = ({user, setUser, post, setPost, posts, setPosts}) => {
                     </div>
                     <div className="post-box-title">
                         <h3>{post.title}</h3>
-                    </div>
-                    <div className="post-box-link">
-                        <a href={post.link}>{post.link}</a>
                     </div>
                     <div className="post-box-text">
                         {post.text}

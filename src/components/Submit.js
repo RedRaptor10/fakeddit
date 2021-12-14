@@ -27,7 +27,6 @@ const Submit = ({user}) => {
 				comments: 0,
 				date: new Date(),
 				downvotes: 0,
-				link: '',
 				subreddit: slug,
 				text: text,
 				title: title,
