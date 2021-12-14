@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import { getFirestore, doc, updateDoc } from "firebase/firestore";
+import { useParams, Navigate, Link } from "react-router-dom";
+import { getFirestore, doc, updateDoc, deleteField, deleteDoc } from "firebase/firestore";
 import formatNumber from "../functions/formatNumber";
 import getElapsedTime from "../functions/getElapsedTime";
 import "../styles/PostBox.css";
@@ -9,6 +9,7 @@ const PostBox = ({user, setUser, post, setPost, posts, setPosts}) => {
     const { slug } = useParams(); // Get subreddit slug from url
     const [upvoted, setUpvoted] = useState(false);
     const [downvoted, setDownvoted] = useState(false);
+    const [deleted, setDeleted] = useState(false);
 
     // Set Upvoted & Downvoted on componentDidMount & componentDidUpdate
     useEffect(() => {
@@ -23,7 +24,6 @@ const PostBox = ({user, setUser, post, setPost, posts, setPosts}) => {
         } else  {
             setDownvoted(false);
         }
-
     }, [user, post.id]);
 
     const vote = async (direction) => {
@@ -107,43 +107,86 @@ const PostBox = ({user, setUser, post, setPost, posts, setPosts}) => {
         }
     };
 
+    const deletePost = () => {
+		const db = getFirestore();
+
+		// Delete Fields from Document
+		const deleteDocFields = async (id) => {
+			const docRef = doc(db, "posts", id);
+			await updateDoc(docRef, {
+                author: deleteField(),
+                comments: deleteField(),
+				date: deleteField(),
+                downvotes: deleteField(),
+                link: deleteField(),
+                subreddit: deleteField(),
+                text: deleteField(),
+                title: deleteField(),
+                upvotes: deleteField()
+			});
+		};
+
+		// Delete Document
+		const deleteDocument = async (id) => {
+			const docRef = doc(db, "posts", id);
+			await deleteDoc(docRef);
+		};
+
+		// Delete Post
+        deleteDocFields(post.id)
+        .then(() => { deleteDocument(post.id) })
+        .then(() => { setDeleted(true); })
+        .catch((error) => {
+            console.log(error);
+        });
+	};
+
     return (
-        <div className="post-box">
-            <div className="post-box-votes-container">
-                <div className={`post-box-upvote-btn ${user && upvoted ? `post-box-upvoted` : ''}`} onClick={
-                    user ? () => {
-                        vote('up');
-                    } : null
-                } />
-                <div className="post-box-votes">
-                    {formatNumber(post.upvotes - post.downvotes)}
+        <div className="post-box-container">
+            { deleted ?
+				<Navigate to={`/`} />
+            :
+            <div className="post-box">
+                <div className="post-box-votes-container">
+                    <div className={`post-box-upvote-btn ${user && upvoted ? `post-box-upvoted` : ''}`} onClick={
+                        user ? () => {
+                            vote('up');
+                        } : null
+                    } />
+                    <div className="post-box-votes">
+                        {formatNumber(post.upvotes - post.downvotes)}
+                    </div>
+                    <div className={`post-box-downvote-btn ${user && downvoted ? `post-box-downvoted` : ''}`} onClick={
+                        user ? () => {
+                            vote('down');
+                        } : null
+                    } />
                 </div>
-                <div className={`post-box-downvote-btn ${user && downvoted ? `post-box-downvoted` : ''}`} onClick={
-                    user ? () => {
-                        vote('down');
-                    } : null
-                } />
+                <div className="post-box-details">
+                    <div className="post-box-meta">
+                        <span className="post-box-author">Posted by u/{post.author}</span>
+                        <span className="post-box-date">{getElapsedTime(post.date.seconds)}</span>
+                    </div>
+                    <div className="post-box-title">
+                        <h3>{post.title}</h3>
+                    </div>
+                    <div className="post-box-link">
+                        <a href={post.link}>{post.link}</a>
+                    </div>
+                    <div className="post-box-text">
+                        {post.text}
+                    </div>
+                    <div className="post-box-btns-container">
+                        <Link to={`/r/${slug}/comments/${post.id}/${post.title}`} className="post-box-btn">
+                            {post.comments} comments
+                        </Link>
+                        {user && post.author === user.username ?
+                            <div className="post-box-btn" onClick={deletePost}>Delete</div>
+                        : null}
+                    </div>
+                </div>
             </div>
-            <div className="post-box-details">
-                <div className="post-box-meta">
-                    <span className="post-box-author">Posted by u/{post.author}</span>
-                    <span className="post-box-date">{getElapsedTime(post.date.seconds)}</span>
-                </div>
-                <div className="post-box-title">
-                    <h3>{post.title}</h3>
-                </div>
-                <div className="post-box-link">
-                    <a href={post.link}>{post.link}</a>
-                </div>
-                <div className="post-box-text">
-                    {post.text}
-                </div>
-                <div className="post-box-btns-container">
-                    <Link to={`/r/${slug}/comments/${post.id}/${post.title}`} className="post-box-btn">
-                        {post.comments} comments
-                    </Link>
-                </div>
-            </div>
+            }
         </div>
     );
 };

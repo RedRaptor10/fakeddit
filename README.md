@@ -6,18 +6,17 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 
 # Features
 
-- Create / Delete account
-- Log in / Log out account
+- Create / delete account
+- Log in / log out account
 - Browse different subfakeddits
-- Create posts & comments
-- Upvote / Downvote posts & comments
+- Create / delete posts & comments
+- Upvote / downvote posts & comments
 - Collapse comments
 
 # To Do
 
-- Add delete post function
 - Implement post flairs
 - Add search function
 - Add sort posts / comments function
 - Create homepage
-- Improve Night Mode
+- Improve night mode

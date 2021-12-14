@@ -23,7 +23,6 @@ const Comment = ({user, setUser, comment, comments, setComments, post, setPost})
         } else  {
             setDownvoted(false);
         }
-
     }, [user, comment.id]);
 
     const vote = async (direction) => {
