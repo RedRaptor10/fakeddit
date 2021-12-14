@@ -16,7 +16,6 @@ const App = () => {
 	const firebaseAppConfig = getFirebaseConfig();
 	initializeApp(firebaseAppConfig);
 
-	const [loggedIn, setLoggedIn] = useState(false);
 	const [user, setUser] = useState();
 
 	// Set Logged In observer on componentDidMount
@@ -32,17 +31,18 @@ const App = () => {
 					const querySnapshot = await getDocs(q);
 					querySnapshot.forEach((doc) => {
 						setUser({
+							id: doc.id, // Add document id to user object
 							email: doc.data().email,
 							username: doc.data().username,
-							password: doc.data().password
+							password: doc.data().password,
+							upvoted: doc.data().upvoted,
+							downvoted: doc.data().downvoted
 						});
 					});
 				};
 
 				getUser();
-				setLoggedIn(true);
 			} else {
-				setLoggedIn(false);
 				setUser(null);
 			}
 		});
@@ -50,14 +50,14 @@ const App = () => {
 
 	return (
 		<HashRouter>
-			<Header loggedIn={loggedIn} />
+			<Header user={user} />
 			<Routes>
 				<Route exact path="/" element={<Home />} />
-				<Route path="/r/:slug" element={<Subreddit loggedIn={loggedIn} />}>
+				<Route path="/r/:slug" element={<Subreddit user={user} setUser={setUser} />}>
 					{/* Nested route for Post component using relative path */}
-					<Route exact path="comments/:postId/:postTitle" element={<Post loggedIn={loggedIn} user={user} />} />
+					<Route exact path="comments/:postId/:postTitle" element={<Post user={user} setUser={setUser} />} />
 				</Route>
-				<Route exact path="/r/:slug/submit" element={<Submit loggedIn={loggedIn} user={user} />} />
+				<Route exact path="/r/:slug/submit" element={<Submit user={user} />} />
 			</Routes>
 			<Footer />
 		</HashRouter>
