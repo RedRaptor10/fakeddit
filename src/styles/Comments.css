@@ -117,6 +117,14 @@
     content: "\21e9";
 }
 
+.comment-upvoted {
+    color: rgb(204, 55, 0);
+}
+
+.comment-downvoted {
+    color: rgb(0, 121, 211);
+}
+
 .comment-btn {
     font-size: 12px;
     padding: 4px;

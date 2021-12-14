@@ -8,7 +8,7 @@ import SubSidebar from "./SubSidebar";
 import formatNumber from "../functions/formatNumber";
 import "../styles/Post.css";
 
-const Post = ({loggedIn, user}) => {
+const Post = ({user, setUser}) => {
     const { slug, postId } = useParams(); // Get post id from url
     const [post, setPost] = useState({
         id: '',
@@ -94,12 +94,14 @@ const Post = ({loggedIn, user}) => {
             <div className="post-main">
                 <div className="post-header">
                     <div className="post-header-inner">
+                        {/* Optional Header Votes
                         <div className="post-votes-container">
                             <div className="post-upvote-btn" />
                             {formatNumber(upvotes)}
                             <div className="post-downvote-btn" />
                             {formatNumber(downvotes)}
                         </div>
+                        */}
                         <div className="post-title">
                             {title}
                         </div>
@@ -112,11 +114,11 @@ const Post = ({loggedIn, user}) => {
                 </div>
                 <div className="post-body">
                     <div className="post-content-container">
-                        <PostBox post={post} />
-                        <Reply loggedIn={loggedIn} user={user} post={post} setPost={setPost} parent='' />
-                        <Comments loggedIn={loggedIn} user={user} post={post} setPost={setPost} />
+                        <PostBox user={user} setUser={setUser} post={post} setPost={setPost} />
+                        <Reply user={user} post={post} setPost={setPost} parent='' />
+                        <Comments user={user} setUser={setUser} post={post} setPost={setPost} />
                     </div>
-                    <SubSidebar loggedIn={loggedIn} subreddit={subreddit} colors={colors} />
+                    <SubSidebar user={user} subreddit={subreddit} colors={colors} />
                 </div>
             </div>
         </div>

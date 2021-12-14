@@ -3,7 +3,7 @@ import { getFirestore, collection, query, where, getDocs } from "firebase/firest
 import Comment from "./Comment";
 import "../styles/Comments.css";
 
-const Comments = ({loggedIn, user, post, setPost}) => {
+const Comments = ({user, setUser, post, setPost}) => {
     const [comments, setComments] = useState([]);
 
 	// Get comments from database on componentDidMount & componentDidUpdate
@@ -78,7 +78,8 @@ const Comments = ({loggedIn, user, post, setPost}) => {
         <div className="comments">
             {comments.map((comment) => {
                 return (
-                    <Comment key={comment.id} loggedIn={loggedIn} user={user} comment={comment} post={post} setPost={setPost} />
+                    <Comment key={comment.id} user={user} setUser={setUser} comment={comment}
+                        comments={comments} setComments={setComments} post={post} setPost={setPost} />
                 );
             })}
         </div>
