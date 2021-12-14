@@ -4,7 +4,7 @@ import { getFirestore, addDoc, collection, doc, updateDoc } from "firebase/fires
 import LogIn from "./LogIn";
 import "../styles/Reply.css";
 
-const Reply = ({loggedIn, user, post, setPost, parent}) => {
+const Reply = ({user, post, setPost, parent}) => {
     const { slug } = useParams(); // Get subreddit slug from url
     const [reply, setReply] = useState('');
     const [error, setError] = useState('');
@@ -65,7 +65,7 @@ const Reply = ({loggedIn, user, post, setPost, parent}) => {
 
     return (
         <div className="reply">
-            {loggedIn ?
+            {user ?
                 <div className={`reply-form ${parent === '' ? `reply-form-post` : ''}`}>
                     <textarea className="reply-input" placeholder="Comment on this post" onChange={handleReply} />
                     {error !== '' ?

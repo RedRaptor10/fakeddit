@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-const Submit = ({loggedIn, user}) => {
+const Submit = ({user}) => {
 	const { slug } = useParams(); // Get subreddit slug from url
 	const [title, setTitle] = useState('');
 	const [text, setText] = useState('');
@@ -43,7 +43,7 @@ const Submit = ({loggedIn, user}) => {
 
 	return (
 		<div className="submit">
-			{loggedIn ?
+			{user ?
 				submitted ?
 					<Navigate to={`/r/${slug}`} />
 				:

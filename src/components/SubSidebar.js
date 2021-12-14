@@ -4,7 +4,7 @@ import secondsToDate from "../functions/secondsToDate";
 import formatNumber from "../functions/formatNumber";
 import "../styles/SubSidebar.css";
 
-const SubSidebar = ({ loggedIn, subreddit, colors }) => {
+const SubSidebar = ({ user, subreddit, colors }) => {
     const { description, members, color, flairs, created } = subreddit;
 
     return (
@@ -33,7 +33,7 @@ const SubSidebar = ({ loggedIn, subreddit, colors }) => {
                     <div className="subreddit-sidebar-section-content-created">
                         Created {secondsToDate(created.seconds)}
                     </div>
-                    {loggedIn ?
+                    {user ?
                         <div className="subreddit-sidebar-section-create">
                             <Link to="submit">
                                 <div className="subreddit-sidebar-section-create-btn" style={

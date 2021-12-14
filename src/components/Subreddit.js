@@ -5,7 +5,7 @@ import PostBox from "./PostBox";
 import SubSidebar from "./SubSidebar";
 import "../styles/Subreddit.css";
 
-const Subreddit = ({loggedIn}) => {
+const Subreddit = ({user, setUser}) => {
 	const { slug } = useParams(); // Get subreddit slug from url
 	const [subreddit, setSubreddit] = useState({
 		title: '',
@@ -93,13 +93,13 @@ const Subreddit = ({loggedIn}) => {
 					{posts.length !== 0 ?
 						posts.map((post) => {
 							return (
-								<PostBox post={post} key={post.id} />
+								<PostBox user={user} setUser={setUser} post={post} posts={posts} setPosts={setPosts} key={post.id} />
 							);
 						})
 					: null
 					}
 				</div>
-				<SubSidebar loggedIn={loggedIn} subreddit={subreddit} colors={colors} />
+				<SubSidebar user={user} subreddit={subreddit} colors={colors} />
 			</div>
 			<Outlet /> {/* Nested route for Post component (NOTE: Cannot pass props through Outlet in React v6) */}
 		</div>

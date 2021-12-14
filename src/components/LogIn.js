@@ -84,7 +84,9 @@ const LogIn = ({setLogInForm, setSignUpForm, logIn}) => {
             await addDoc(collection(db, "users"), {
                 email: form.email,
                 username: form.username,
-                password: form.password
+                password: form.password,
+                upvoted: [],
+                downvoted: []
             });
         };
 

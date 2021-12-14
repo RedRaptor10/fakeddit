@@ -6,7 +6,7 @@ import LogIn from "./LogIn";
 import '../styles/Header.css';
 import toggleNightMode from '../functions/toggleNightMode';
 
-const Header = ({loggedIn}) => {
+const Header = ({user}) => {
 	const [logInForm, setLogInForm] = useState(false);
 	const [signUpForm, setSignUpForm] = useState(false);
 	const [dropdown, setDropdown] = useState(false);
@@ -43,7 +43,9 @@ const Header = ({loggedIn}) => {
 			await updateDoc(docRef, {
 				email: deleteField(),
 				username: deleteField(),
-				password: deleteField()
+				password: deleteField(),
+				upvoted: deleteField(),
+				downvoted: deleteField()
 			});
 		};
 
@@ -95,7 +97,7 @@ const Header = ({loggedIn}) => {
 				</div>
 			</div>
 			<div className="header-right">
-				{!loggedIn ?
+				{!user ?
 				<div className="header-btns-container">
 					<button className="header-btn login-btn" onClick={() => {setLogInForm(true)}}>Log In</button>
 					<button className="header-btn signup-btn" onClick={() => {setSignUpForm(true)}}>Sign Up</button>
@@ -119,7 +121,7 @@ const Header = ({loggedIn}) => {
 							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Talk</div>
 							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Predictions</div>
 							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Help Center</div>
-							{loggedIn ?
+							{user ?
 								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"} onClick={logOut}>Log Out</div>
 							:
 								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"} onClick={() => {
@@ -127,7 +129,7 @@ const Header = ({loggedIn}) => {
 									setLogInForm(true);
 								}}>Log In / Sign Up</div>
 							}
-							{loggedIn ?
+							{user ?
 								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"} onClick={deleteAccount}>Delete Account</div>
 							: null}
 						</div>
