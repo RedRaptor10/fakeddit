@@ -74,5 +74,6 @@
     padding: 4px;
     border: none;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: bold;
 }

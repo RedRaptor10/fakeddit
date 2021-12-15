@@ -15,8 +15,8 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 
 # To Do
 
-- Implement post flairs
 - Add search function
+- Add sort by flairs function
 - Add sort posts / comments function
 - Create homepage
 - Improve night mode

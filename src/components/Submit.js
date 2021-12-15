@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, useLocation } from "react-router-dom";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const Submit = ({user}) => {
 	const { slug } = useParams(); // Get subreddit slug from url
 	const [title, setTitle] = useState('');
 	const [text, setText] = useState('');
+	const { flairs } = useLocation().state;
+	const [flairsPicked, setFlairsPicked] = useState([]);
 	const [submitted, setSubmitted] = useState(false);
 	const [error, setError] = useState('');
 
@@ -19,6 +21,21 @@ const Submit = ({user}) => {
 		setText(event.target.value);
 	};
 
+	const pickFlair = event => {
+		const flair = event.target.innerHTML;
+		const temp = flairsPicked.slice();
+
+		// If flair already picked, remove flair, otherwise add flair
+		if (flairsPicked.includes(flair)) {
+			const index = flairsPicked.indexOf(flair);
+			temp.splice(index, 1);
+		} else {
+			temp.push(event.target.innerHTML);
+		}
+
+		setFlairsPicked(temp);
+	};
+
 	const submitPost = async () => {
 		if (title !== '' && text !== '') {
 			const db = getFirestore();
@@ -27,6 +44,7 @@ const Submit = ({user}) => {
 				comments: 0,
 				date: new Date(),
 				downvotes: 0,
+				flairs: flairsPicked,
 				subreddit: slug,
 				text: text,
 				title: title,
@@ -58,6 +76,11 @@ const Submit = ({user}) => {
 					{error !== '' ?
                         <div className="error-msg">{error}</div>
                     : null}
+					{flairs.map((flair, i) => {
+						return (
+							<div key={i} className="flair" onClick={pickFlair}>{flair}</div>
+						);
+					})}
 					<button className="post-submit-btn" onClick={submitPost}>Post</button>
 				</div>
 			: null}

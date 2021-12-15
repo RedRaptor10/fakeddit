@@ -99,7 +99,7 @@ const Subreddit = ({user, setUser}) => {
 					: null
 					}
 				</div>
-				<SubSidebar user={user} subreddit={subreddit} colors={colors} />
+				<SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors} />
 			</div>
 			<Outlet /> {/* Nested route for Post component (NOTE: Cannot pass props through Outlet in React v6) */}
 		</div>

@@ -167,6 +167,11 @@ const PostBox = ({user, setUser, post, setPost, posts, setPosts}) => {
                         <span className="post-box-date">{getElapsedTime(post.date.seconds)}</span>
                     </div>
                     <div className="post-box-title">
+                        {post.flairs.map((flair, i) => {
+                            return (
+                                <div key={i} className="post-box-flair">{flair}</div>
+                            );
+                        })}
                         <h3>{post.title}</h3>
                     </div>
                     <div className="post-box-text">

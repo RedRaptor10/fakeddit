@@ -60,6 +60,21 @@
     margin-left: 8px;
 }
 
+.post-box-title {
+    display: flex;
+    align-items: center;
+}
+
+.post-box-flair {
+    background: rgb(237, 239, 241);
+    margin: 4px;
+    padding: 4px;
+    border: none;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
 .post-box-text {
     max-height: 250px;
 }

@@ -16,6 +16,7 @@ const Post = ({user, setUser}) => {
         comments: 0,
         date: '',
         downvotes: 0,
+        flairs: [],
         postSubreddit: slug,
         text: '',
         title: '',
