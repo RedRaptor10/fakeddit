@@ -5,7 +5,7 @@ import formatNumber from "../functions/formatNumber";
 import getElapsedTime from "../functions/getElapsedTime";
 import "../styles/PostBox.css";
 
-const PostBox = ({user, setUser, post, setPost, posts, setPosts}) => {
+const PostBox = ({user, setUser, post, setPost, posts, setPosts, pickFlair, postPage}) => {
     const { slug } = useParams(); // Get subreddit slug from url
     const [upvoted, setUpvoted] = useState(false);
     const [downvoted, setDownvoted] = useState(false);
@@ -83,27 +83,24 @@ const PostBox = ({user, setUser, post, setPost, posts, setPosts}) => {
             downvoted: downvotedClone
         });
 
+        // Update posts state in Subreddit component
+        const temp = posts.slice();
+        // Find post in temp array, then update post upvotes
+        temp.forEach((p) => {
+            if (p.id === post.id) {
+                p.upvotes = newUpvotes;
+                p.downvotes = newDownvotes;
+            }
+        });
+        setPosts(temp);
+
         // Update post state in Post component
-        if (setPost) {
+        if (postPage) {
             setPost({
                 ...post,
                 upvotes: newUpvotes,
                 downvotes: newDownvotes
             });
-        }
-
-        // Update posts state in Subreddit component
-        else if (setPosts) {
-            const temp = posts.slice();
-            // Find post in temp array, then update post upvotes
-            temp.forEach((p) => {
-                if (p.id === post.id) {
-                    p.upvotes = newUpvotes;
-                    p.downvotes = newDownvotes;
-                }
-            });
-
-            setPosts(temp);
         }
     };
 
@@ -169,7 +166,11 @@ const PostBox = ({user, setUser, post, setPost, posts, setPosts}) => {
                     <div className="post-box-title">
                         {post.flairs.map((flair, i) => {
                             return (
-                                <div key={i} className="post-box-flair">{flair}</div>
+                                <div key={i} className="post-box-flair" onClick={() => {pickFlair(flair)}}>
+                                    {postPage ?
+                                        <Link to={`/r/${slug}`}>{flair}</Link>
+                                    : flair}
+                                </div>
                             );
                         })}
                         <h3>{post.title}</h3>

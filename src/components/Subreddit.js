@@ -3,6 +3,7 @@ import { useParams, Outlet } from "react-router-dom";
 import { getFirestore, collection, query, where, doc, getDoc, getDocs } from "firebase/firestore";
 import PostBox from "./PostBox";
 import SubSidebar from "./SubSidebar";
+import { SubredditContext } from "./subredditContext"; // Import Context allows passing of props to child Post component
 import "../styles/Subreddit.css";
 
 const Subreddit = ({user, setUser}) => {
@@ -18,6 +19,7 @@ const Subreddit = ({user, setUser}) => {
 		created: 0
 	});
 	const [posts, setPosts] = useState([]);
+	const [activeFlairs, setActiveFlairs] = useState([]);
 	const { title, banner, icon, color } = subreddit;
 	const colors = {
 		LightBlue: 'rgb(0, 121, 211)'
@@ -71,6 +73,33 @@ const Subreddit = ({user, setUser}) => {
 		getPosts();
 	}, [slug]);
 
+	// Add/remove flair to active flairs
+	const pickFlair = (flair) => {
+		const temp = activeFlairs.slice();
+
+		// If flair already picked, remove flair, otherwise add flair
+		if (activeFlairs.includes(flair)) {
+			const index = activeFlairs.indexOf(flair);
+			temp.splice(index, 1);
+		} else {
+			temp.push(flair);
+		}
+
+		setActiveFlairs(temp);
+    };
+
+	// Check if post has an active flair
+	const hasActiveFlair = (postFlairs) => {
+		let includes = false;
+		postFlairs.forEach((f) => {
+			if (activeFlairs.includes(f)) {
+				includes = true;
+			}
+		});
+
+		return includes;
+	};
+
 	return (
 		<div className="subreddit">
 			<div className="subreddit-banner" style={
@@ -93,15 +122,22 @@ const Subreddit = ({user, setUser}) => {
 					{posts.length !== 0 ?
 						posts.map((post) => {
 							return (
-								<PostBox user={user} setUser={setUser} post={post} posts={posts} setPosts={setPosts} key={post.id} />
+								/* Render post if there are no active flairs OR post has an active flair */
+								activeFlairs.length === 0 || hasActiveFlair(post.flairs) ?
+									<PostBox key={post.id} user={user} setUser={setUser} post={post} posts={posts} setPosts={setPosts}
+										pickFlair={pickFlair} postPage={false} />
+								: null
 							);
 						})
 					: null
 					}
 				</div>
-				<SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors} />
+				<SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors}
+					pickFlair={pickFlair} />
 			</div>
-			<Outlet /> {/* Nested route for Post component (NOTE: Cannot pass props through Outlet in React v6) */}
+			<SubredditContext.Provider value={{subreddit, colors, posts, setPosts, pickFlair}}>
+				<Outlet /> {/* Nested route for Post component */}
+			</SubredditContext.Provider>
 		</div>
 	);
 }

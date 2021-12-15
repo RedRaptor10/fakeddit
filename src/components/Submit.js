@@ -7,7 +7,7 @@ const Submit = ({user}) => {
 	const [title, setTitle] = useState('');
 	const [text, setText] = useState('');
 	const { flairs } = useLocation().state;
-	const [flairsPicked, setFlairsPicked] = useState([]);
+	const [activeFlairs, setActiveFlairs] = useState([]);
 	const [submitted, setSubmitted] = useState(false);
 	const [error, setError] = useState('');
 
@@ -23,17 +23,17 @@ const Submit = ({user}) => {
 
 	const pickFlair = event => {
 		const flair = event.target.innerHTML;
-		const temp = flairsPicked.slice();
+		const temp = activeFlairs.slice();
 
 		// If flair already picked, remove flair, otherwise add flair
-		if (flairsPicked.includes(flair)) {
-			const index = flairsPicked.indexOf(flair);
+		if (activeFlairs.includes(flair)) {
+			const index = activeFlairs.indexOf(flair);
 			temp.splice(index, 1);
 		} else {
-			temp.push(event.target.innerHTML);
+			temp.push(flair);
 		}
 
-		setFlairsPicked(temp);
+		setActiveFlairs(temp);
 	};
 
 	const submitPost = async () => {
@@ -44,7 +44,7 @@ const Submit = ({user}) => {
 				comments: 0,
 				date: new Date(),
 				downvotes: 0,
-				flairs: flairsPicked,
+				flairs: activeFlairs,
 				subreddit: slug,
 				text: text,
 				title: title,
