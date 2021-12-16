@@ -50,6 +50,13 @@ const Post = ({user, setUser}) => {
         .catch((error) => {
             console.log(error);
         });
+
+        // Disable scroll on parent Subreddit
+        document.body.classList.add("no-scroll");
+        // Re-enable scroll on componentDidUnmount
+        return () => {
+            document.body.classList.remove("no-scroll");
+        };
     }, [slug, postId]);
 
     return (

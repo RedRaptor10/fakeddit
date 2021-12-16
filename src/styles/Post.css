@@ -18,6 +18,7 @@
     background: rgb(218, 224, 230);
     width: 75%;
     height: 100vh;
+    overflow-y: scroll;
 }
 
 .post-header {
