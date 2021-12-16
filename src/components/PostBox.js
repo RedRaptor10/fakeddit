@@ -5,7 +5,7 @@ import formatNumber from "../functions/formatNumber";
 import getElapsedTime from "../functions/getElapsedTime";
 import "../styles/PostBox.css";
 
-const PostBox = ({user, setUser, post, setPost, posts, setPosts, pickFlair, postPage}) => {
+const PostBox = ({user, setUser, post, setPost, posts, setPosts, activeFlairs, pickFlair, postPage}) => {
     const { slug } = useParams(); // Get subreddit slug from url
     const [upvoted, setUpvoted] = useState(false);
     const [downvoted, setDownvoted] = useState(false);
@@ -166,7 +166,8 @@ const PostBox = ({user, setUser, post, setPost, posts, setPosts, pickFlair, post
                     <div className="post-box-title">
                         {post.flairs.map((flair, i) => {
                             return (
-                                <div key={i} className="post-box-flair" onClick={() => {pickFlair(flair)}}>
+                                <div key={i} className={`post-box-flair ${activeFlairs.includes(flair) ? `post-box-flair-active` : null}`}
+                                    onClick={() => {pickFlair(flair)}}>
                                     {postPage ?
                                         <Link to={`/r/${slug}`}>{flair}</Link>
                                     : flair}

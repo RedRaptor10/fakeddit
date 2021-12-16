@@ -1,0 +1,25 @@
+.sortbar {
+    background: rgb(255, 255, 255);
+    display: flex;
+    background: rgb(255, 255, 255);
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 4px;
+}
+
+.sortbar-btn {
+    background: rgb(246, 247, 248);
+    margin-left: 12px;
+    margin-right: 12px;
+    padding: 4px;
+    color: rgb(128, 128, 128);
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sortbar-btn-active {
+    color: rgb(0, 121, 211);
+}

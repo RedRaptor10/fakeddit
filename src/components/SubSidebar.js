@@ -4,7 +4,7 @@ import secondsToDate from "../functions/secondsToDate";
 import formatNumber from "../functions/formatNumber";
 import "../styles/SubSidebar.css";
 
-const SubSidebar = ({ user, slug, subreddit, colors, pickFlair, postPage }) => {
+const SubSidebar = ({ user, slug, subreddit, colors, activeFlairs, pickFlair, postPage }) => {
     const { description, members, color, flairs, created } = subreddit;
 
     return (
@@ -61,7 +61,9 @@ const SubSidebar = ({ user, slug, subreddit, colors, pickFlair, postPage }) => {
                 <div className="subreddit-sidebar-section-flairs">
                     {flairs.map((flair, i) => {
                         return (
-                            <div key={i} className="subreddit-sidebar-section-flair" onClick={() => {pickFlair(flair)}}>
+                            <div key={i} className={`subreddit-sidebar-section-flair
+                                ${activeFlairs.includes(flair) ? `subreddit-sidebar-section-flair-active` : null}`}
+                                onClick={() => {pickFlair(flair)}}>
                                 {postPage ?
                                     <Link to={`/r/${slug}`}>{flair}</Link>
                                 : flair}

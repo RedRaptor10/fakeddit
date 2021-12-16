@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Outlet } from "react-router-dom";
 import { getFirestore, collection, query, where, doc, getDoc, getDocs } from "firebase/firestore";
+import Sortbar from "./Sortbar";
 import PostBox from "./PostBox";
 import SubSidebar from "./SubSidebar";
 import { SubredditContext } from "./subredditContext"; // Import Context allows passing of props to child Post component
@@ -119,13 +120,14 @@ const Subreddit = ({user, setUser}) => {
 			</div>
 			<div className="subreddit-body">
 				<div className="subreddit-posts-container">
+				<Sortbar posts={posts} setPosts={setPosts} />
 					{posts.length !== 0 ?
 						posts.map((post) => {
 							return (
 								/* Render post if there are no active flairs OR post has an active flair */
 								activeFlairs.length === 0 || hasActiveFlair(post.flairs) ?
 									<PostBox key={post.id} user={user} setUser={setUser} post={post} posts={posts} setPosts={setPosts}
-										pickFlair={pickFlair} postPage={false} />
+										activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={false} />
 								: null
 							);
 						})
@@ -133,9 +135,9 @@ const Subreddit = ({user, setUser}) => {
 					}
 				</div>
 				<SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors}
-					pickFlair={pickFlair} />
+					activeFlairs={activeFlairs} pickFlair={pickFlair} />
 			</div>
-			<SubredditContext.Provider value={{subreddit, colors, posts, setPosts, pickFlair}}>
+			<SubredditContext.Provider value={{subreddit, colors, posts, setPosts, activeFlairs, pickFlair}}>
 				<Outlet /> {/* Nested route for Post component */}
 			</SubredditContext.Provider>
 		</div>

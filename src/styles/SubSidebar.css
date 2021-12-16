@@ -83,3 +83,7 @@
     color: initial;
     text-decoration: none;
 }
+
+.subreddit-sidebar-section-flair-active, .subreddit-sidebar-section-flair-active a {
+    color: rgb(0, 121, 211);
+}

@@ -24,7 +24,7 @@ const Post = ({user, setUser}) => {
         upvotes: 0
     });
     const { downvotes, title, upvotes } = post;
-    const { subreddit, colors, posts, setPosts, pickFlair } = React.useContext(SubredditContext); // Get props from parent Subreddit component
+    const { subreddit, colors, posts, setPosts, activeFlairs, pickFlair } = React.useContext(SubredditContext); // Get props from parent Subreddit component
 
     // Get Post from database on componentDidMount & componentDidUpdate
     useEffect(() => {
@@ -81,11 +81,11 @@ const Post = ({user, setUser}) => {
                 <div className="post-body">
                     <div className="post-content-container">
                         <PostBox user={user} setUser={setUser} post={post} setPost={setPost} posts={posts} setPosts={setPosts}
-                            pickFlair={pickFlair} postPage={true} />
+                            activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={true} />
                         <Reply user={user} post={post} setPost={setPost} parent='' />
                         <Comments user={user} setUser={setUser} post={post} setPost={setPost} />
                     </div>
-                    <SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors} pickFlair={pickFlair} postPage={true} />
+                    <SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors} activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={true} />
                 </div>
             </div>
         </div>

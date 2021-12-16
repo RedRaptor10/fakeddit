@@ -12,11 +12,12 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 - Create / delete posts & comments
 - Upvote / downvote posts & comments
 - Collapse comments
+- Sort posts
 - Filter posts by flairs
 
 # To Do
 
 - Add search function
-- Add sort posts / comments function
+- Add comments function
 - Create homepage
 - Improve night mode
