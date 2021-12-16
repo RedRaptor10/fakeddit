@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+import Sortbar from "./Sortbar";
 import Comment from "./Comment";
 import "../styles/Comments.css";
 
@@ -48,16 +49,13 @@ const Comments = ({user, setUser, post, setPost}) => {
                     // Go through all comments and check if it's a reply to current comment
                     allComments.forEach((allComment) => {
                         if (allComment.parentId === comment.id) {
-                            // Create replies array for current comment, then add reply
-                            if (!comment.replies) {
-                                comment.replies = [];
-                            }
+                            // Add reply to replies array
                             comment.replies.push(allComment);
                         }
                     });
 
                     // If current comment has replies, recursively loop through each reply
-                    if (comment.replies) {
+                    if (comment.replies.length > 0) {
                         addReplies(comment.replies);
                     }
                 });
@@ -76,6 +74,7 @@ const Comments = ({user, setUser, post, setPost}) => {
 
     return (
         <div className="comments">
+            <Sortbar comments={comments} setComments={setComments} />
             {comments.map((comment) => {
                 return (
                     <Comment key={comment.id} user={user} setUser={setUser} comment={comment}

@@ -1,5 +1,4 @@
-.sortbar {
-    background: rgb(255, 255, 255);
+.sortbar-posts {
     display: flex;
     background: rgb(255, 255, 255);
     padding: 12px;
@@ -22,4 +21,36 @@
 
 .sortbar-btn-active {
     color: rgb(0, 121, 211);
+}
+
+.sortbar-comments {
+    display: flex;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+.sortbar-comments-btn {
+    color: rgb(0, 121, 211);
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sortbar-comments-dropdown {
+    position: absolute;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+.sortbar-comments-dropdown-item {
+    padding: 4px;
+    color: rgb(128, 128, 128);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.sortbar-comments-dropdown-item:hover {
+    background: rgb(51, 167, 255);
+    color: rgb(0, 0, 0);
 }

@@ -25,6 +25,7 @@ const Reply = ({user, post, setPost, parent}) => {
                 downvotes: 0,
                 parentId: parent,
                 postId: post.id,
+                replies: [],
                 subreddit: slug,
 				text: reply,
 				upvotes: 1

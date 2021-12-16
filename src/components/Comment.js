@@ -107,6 +107,7 @@ const Comment = ({user, setUser, comment, comments, setComments, post, setPost})
                 downvotes: deleteField(),
                 parentId: deleteField(),
                 postId: deleteField(),
+                replies: deleteField(),
                 subreddit: deleteField(),
                 text: deleteField(),
                 upvotes: deleteField()
@@ -204,7 +205,7 @@ const Comment = ({user, setUser, comment, comments, setComments, post, setPost})
                 {!collapsed && showCommentsReply ?
                     <Reply user={user} post={post} setPost={setPost} parent={comment.id} />
                 : null}
-                {!collapsed && comment.replies ?
+                {!collapsed && comment.replies.length > 0 ?
                     <div className="replies">
                         {comment.replies.map((reply) => {
                             return (
