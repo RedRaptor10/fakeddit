@@ -6,6 +6,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
 import Header from "./Header";
 import Home from "./Home";
+import Search from "./Search";
 import Footer from "./Footer";
 import Subreddit from "./Subreddit";
 import Submit from "./Submit";
@@ -53,6 +54,7 @@ const App = () => {
 			<Header user={user} />
 			<Routes>
 				<Route exact path="/" element={<Home />} />
+				<Route exact path="/search/:searchQuery" element={<Search />} />
 				<Route path="/r/:slug" element={<Subreddit user={user} setUser={setUser} />}>
 					{/* Nested route for Post component using relative path */}
 					<Route exact path="comments/:postId/:postTitle" element={<Post user={user} setUser={setUser} />} />

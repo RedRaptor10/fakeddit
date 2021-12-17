@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, Navigate, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const Submit = ({user}) => {
@@ -8,8 +8,8 @@ const Submit = ({user}) => {
 	const [text, setText] = useState('');
 	const { flairs } = useLocation().state;
 	const [activeFlairs, setActiveFlairs] = useState([]);
-	const [submitted, setSubmitted] = useState(false);
 	const [error, setError] = useState('');
+	const navigate = useNavigate();
 
 	// Dynamically change state from title input
 	const handleTitle = event => {
@@ -51,7 +51,7 @@ const Submit = ({user}) => {
 				upvotes: 1
 			})
 			.then(() => {
-				setSubmitted(true);
+				navigate("/r/" + slug);
 			});
 		} else {
 			setError('All fields required.');
@@ -61,9 +61,6 @@ const Submit = ({user}) => {
 	return (
 		<div className="submit">
 			{user ?
-				submitted ?
-					<Navigate to={`/r/${slug}`} />
-				:
 				<div>
 					<h3>Create a post</h3>
 					<div>r/{slug}</div>

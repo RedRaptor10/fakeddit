@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut, deleteUser } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs, doc, deleteDoc, updateDoc, deleteField } from "firebase/firestore";
 import LogIn from "./LogIn";
@@ -7,10 +7,22 @@ import '../styles/Header.css';
 import toggleNightMode from '../functions/toggleNightMode';
 
 const Header = ({user}) => {
+	const [searchInput, setSearchInput] = useState('');
 	const [logInForm, setLogInForm] = useState(false);
 	const [signUpForm, setSignUpForm] = useState(false);
 	const [dropdown, setDropdown] = useState(false);
 	const [nightMode, setNightMode] = useState(false);
+	const navigate = useNavigate();
+
+	const handleInput = (event) => {
+		setSearchInput(event.target.value);
+	};
+
+	const submitSearch = (event) => {
+		if (event.keyCode === 13) {
+			navigate("/search/" + searchInput);
+		}
+	};
 
 	const logOut = () => {
 		const auth = getAuth();
@@ -92,7 +104,7 @@ const Header = ({user}) => {
 			<div className="header-center">
 				<div className="search-box">
 					<form>
-						<input className="search-field" type="search" placeholder="Search Fakeddit"></input>
+						<input className="search-field" type="search" placeholder="Search Fakeddit" onChange={handleInput} onKeyDown={submitSearch}></input>
 					</form>
 				</div>
 			</div>

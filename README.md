@@ -14,9 +14,10 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 - Collapse comments
 - Sort posts / comments
 - Filter posts by flairs
+- Search posts
 
 # To Do
 
-- Add search function
 - Create homepage
 - Improve night mode
+- (Optional) Sort search results

@@ -10,6 +10,7 @@ import "../styles/Subreddit.css";
 const Subreddit = ({user, setUser}) => {
 	const { slug } = useParams(); // Get subreddit slug from url
 	const [subreddit, setSubreddit] = useState({
+		slug: '',
 		title: '',
 		banner: '',
 		icon: '',
