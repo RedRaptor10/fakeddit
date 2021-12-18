@@ -2,7 +2,7 @@
 
 A clone of a popular website created through [TheOdinProject](https://www.theodinproject.com) online course. Created with React using Firebase backend.
 
-[Live Demo]()
+[Live Demo](https://redraptor10.github.io/fakeddit)
 
 # Features
 
@@ -16,9 +16,17 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 - Filter posts by flairs
 - Search posts
 
+# Technologies
+
+- React
+- Firebase
+- JavaScript
+- HTML
+- CSS
+
 # To Do
 
-- Improve submit form css
+- Improve submit form CSS
 - Improve night mode
 - (Optional) Fix post header votes
 - (Optional) Improve post previews
