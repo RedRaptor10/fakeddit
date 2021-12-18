@@ -34,9 +34,11 @@ const Post = ({user, setUser}) => {
 			const docSnap = await getDoc(docRef);
 
 			if (docSnap.exists()) {
-                const postObj = docSnap.data();
-				postObj.id = docSnap.id; // Add document id to post object
-				return postObj;
+                // Return post data along with post id
+				return {
+                    ...docSnap.data(),
+                    id: docSnap.id
+                };
 			} else {
 				return null;
 			}

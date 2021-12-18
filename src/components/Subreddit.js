@@ -50,9 +50,11 @@ const Subreddit = ({user, setUser}) => {
 
 				// Add fetched posts to posts array
 				querySnap.forEach(post => {
-					const postObj = post.data();
-					postObj.id = post.id; // Add document id to post object
-					postsArray.push(postObj);
+					// Push post data along with post id to array
+					postsArray.push({
+						...post.data(),
+						id: post.id
+					});
 				});
 
 				// Sort posts array by date (desc)
@@ -121,14 +123,14 @@ const Subreddit = ({user, setUser}) => {
 			</div>
 			<div className="subreddit-body">
 				<div className="subreddit-posts-container">
-				<Sortbar posts={posts} setPosts={setPosts} />
+					<Sortbar posts={posts} setPosts={setPosts} />
 					{posts.length !== 0 ?
 						posts.map((post) => {
 							return (
 								/* Render post if there are no active flairs OR post has an active flair */
 								activeFlairs.length === 0 || hasActiveFlair(post.flairs) ?
 									<PostBox key={post.id} user={user} setUser={setUser} post={post} posts={posts} setPosts={setPosts}
-										activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={false} />
+										activeFlairs={activeFlairs} pickFlair={pickFlair} />
 								: null
 							);
 						})

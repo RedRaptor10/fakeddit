@@ -20,9 +20,11 @@ const Comments = ({user, setUser, post, setPost}) => {
 
 				// Add fetched comments to comments array
 				querySnap.forEach(comment => {
-					const commentObj = comment.data();
-					commentObj.id = comment.id; // Add document id to comment object
-					commentsArray.push(commentObj);
+					// Push comment data along with comment id to array
+                    commentsArray.push({
+                        ...comment.data(),
+                        id: comment.id
+                    });
 				});
 
 				// Sort comments array by votes (desc)

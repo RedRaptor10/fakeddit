@@ -53,7 +53,7 @@ const App = () => {
 		<HashRouter>
 			<Header user={user} />
 			<Routes>
-				<Route exact path="/" element={<Home />} />
+				<Route exact path="/" element={<Home user={user} setUser={setUser} />} />
 				<Route exact path="/search/:searchQuery" element={<Search />} />
 				<Route path="/r/:slug" element={<Subreddit user={user} setUser={setUser} />}>
 					{/* Nested route for Post component using relative path */}

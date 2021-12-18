@@ -5,8 +5,9 @@ import formatNumber from "../functions/formatNumber";
 import getElapsedTime from "../functions/getElapsedTime";
 import "../styles/PostBox.css";
 
-const PostBox = ({user, setUser, post, setPost, posts, setPosts, activeFlairs, pickFlair, postPage}) => {
-    const { slug } = useParams(); // Get subreddit slug from url
+const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activeFlairs, pickFlair, postPage}) => {
+    let { slug } = useParams(); // Get subreddit slug from url
+    if (propSlug) { slug = propSlug; } // If propSlug passed from Home component, set slug to propSlug
     const [upvoted, setUpvoted] = useState(false);
     const [downvoted, setDownvoted] = useState(false);
     const [deleted, setDeleted] = useState(false);
@@ -160,11 +161,14 @@ const PostBox = ({user, setUser, post, setPost, posts, setPosts, activeFlairs, p
                 </div>
                 <div className="post-box-details">
                     <div className="post-box-meta">
+                        {propSlug ?
+                            <Link to={`/r/${propSlug}`} className="post-box-subreddit">r/{propSlug}</Link>
+                        : null}
                         <span className="post-box-author">Posted by u/{post.author}</span>
                         <span className="post-box-date">{getElapsedTime(post.date.seconds)}</span>
                     </div>
                     <div className="post-box-title">
-                        {post.flairs.map((flair, i) => {
+                        {activeFlairs ? post.flairs.map((flair, i) => {
                             return (
                                 <div key={i} className={`post-box-flair ${activeFlairs.includes(flair) ? `post-box-flair-active` : null}`}
                                     onClick={() => {pickFlair(flair)}}>
@@ -173,7 +177,8 @@ const PostBox = ({user, setUser, post, setPost, posts, setPosts, activeFlairs, p
                                     : flair}
                                 </div>
                             );
-                        })}
+                        })
+                        : null}
                         <h3>{post.title}</h3>
                     </div>
                     <div className="post-box-text">

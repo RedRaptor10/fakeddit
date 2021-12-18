@@ -1,3 +1,66 @@
 .home {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
     min-height: 100vh;
+}
+
+.home-header {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.home-body {
+    display: flex;
+}
+
+.home-posts-container {
+    width: 66.6%;
+}
+
+.home-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.3%;
+    margin-left: 12px;
+}
+
+.home-sidebar a {
+    color: rgb(0, 121, 211);
+    text-decoration: none;
+}
+
+.home-sidebar-section {
+    background: rgb(255, 255, 255);
+    width: 100%;
+    margin-bottom: 12px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 4px;
+}
+
+.home-sidebar-section-header {
+    padding: 12px;
+    background: rgb(237, 239, 241);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.home-sidebar-section-content {
+    padding: 12px;
+    font-size: 14px;
+}
+
+.home-sidebar-section-content ul {
+    margin: 0;
+    padding-left: 12px;
+}
+
+.home-sidebar-section-content-created {
+    padding: 8px 8px 8px 0;
+    font-size: 14px;
 }

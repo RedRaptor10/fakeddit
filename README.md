@@ -18,6 +18,9 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 
 # To Do
 
-- Create homepage
+- Improve submit form css
 - Improve night mode
-- (Optional) Sort search results
+- (Optional) Fix post header votes
+- (Optional) Improve post previews
+- (Optional) Add filter / sort search results
+- (Optional) Add autocomplete / search suggestions
