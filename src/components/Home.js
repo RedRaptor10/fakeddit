@@ -57,7 +57,7 @@ const Home = ({user, setUser}) => {
 							Fakeddit is a project made to simulate a popular website. Created through&nbsp;
 							<a href="https://www.theodinproject.com">TheOdinProject</a> online course.
 							<br /><br />
-							View source code <a href="#">here</a>.
+							View source code <a href="https://github.com/RedRaptor10/fakeddit">here</a>.
 							<div className="home-sidebar-section-content-created">
                         		Created Dec 17, 2021
                     		</div>

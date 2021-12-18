@@ -24,7 +24,8 @@ const Subreddit = ({user, setUser}) => {
 	const [activeFlairs, setActiveFlairs] = useState([]);
 	const { title, banner, icon, color } = subreddit;
 	const colors = {
-		LightBlue: 'rgb(0, 121, 211)'
+		LightBlue: 'rgb(0, 121, 211)',
+		DarkBlue: 'rgb(0, 64, 121)'
 	}
 
 	// Get Subreddit & posts from database on componentDidMount & componentDidUpdate

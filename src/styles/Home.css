@@ -45,7 +45,8 @@
 
 .home-sidebar-section-header {
     padding: 12px;
-    background: rgb(237, 239, 241);
+    background: rgb(0, 121, 211);
+    color: rgb(255, 255, 255);
     font-size: 12px;
     font-weight: bold;
 }

@@ -69,14 +69,12 @@ const Post = ({user, setUser}) => {
             <div className="post-main">
                 <div className="post-header">
                     <div className="post-header-inner">
-                        {/* Optional Header Votes
                         <div className="post-votes-container">
                             <div className="post-upvote-btn" />
                             {formatNumber(upvotes)}
                             <div className="post-downvote-btn" />
                             {formatNumber(downvotes)}
                         </div>
-                        */}
                         <div className="post-title">
                             {title}
                         </div>
