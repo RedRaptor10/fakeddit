@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/fakeddit/static/css/main.affc3d4c.chunk.css",
+    "main.js": "/fakeddit/static/js/main.ce8fbf99.chunk.js",
+    "main.js.map": "/fakeddit/static/js/main.ce8fbf99.chunk.js.map",
+    "runtime-main.js": "/fakeddit/static/js/runtime-main.fa257a2f.js",
+    "runtime-main.js.map": "/fakeddit/static/js/runtime-main.fa257a2f.js.map",
+    "static/js/2.08c4310d.chunk.js": "/fakeddit/static/js/2.08c4310d.chunk.js",
+    "static/js/2.08c4310d.chunk.js.map": "/fakeddit/static/js/2.08c4310d.chunk.js.map",
+    "index.html": "/fakeddit/index.html",
+    "static/css/main.affc3d4c.chunk.css.map": "/fakeddit/static/css/main.affc3d4c.chunk.css.map",
+    "static/js/2.08c4310d.chunk.js.LICENSE.txt": "/fakeddit/static/js/2.08c4310d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fa257a2f.js",
+    "static/js/2.08c4310d.chunk.js",
+    "static/css/main.affc3d4c.chunk.css",
+    "static/js/main.ce8fbf99.chunk.js"
+  ]
+}
