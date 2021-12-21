@@ -20,7 +20,7 @@
 }
 
 .sortbar-btn-active {
-    color: rgb(0, 121, 211);
+    color: rgb(0, 121, 211) !important;
 }
 
 .sortbar-comments {
@@ -53,4 +53,14 @@
 .sortbar-comments-dropdown-item:hover {
     background: rgb(51, 167, 255);
     color: rgb(0, 0, 0);
+}
+
+/* Night Mode */
+.sortbar-posts-dark {
+    background: rgb(26, 26, 27);
+}
+
+.sortbar-btn-dark {
+    background: rgb(39, 39, 41) !important;
+	color: rgb(215, 218, 220);
 }

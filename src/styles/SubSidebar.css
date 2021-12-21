@@ -88,3 +88,14 @@
 .subreddit-sidebar-section-flair-active, .subreddit-sidebar-section-flair-active a {
     color: rgb(0, 121, 211);
 }
+
+/* Night Mode */
+.home-sidebar-section-content-dark, .subreddit-sidebar-section-dark {
+    background: rgb(26, 26, 27);
+    color: rgb(215, 218, 220);
+}
+
+.subreddit-sidebar-section-flair-dark {
+    background: rgb(39, 39, 41) !important;
+	color: rgb(215, 218, 220);
+}

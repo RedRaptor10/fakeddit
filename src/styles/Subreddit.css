@@ -51,3 +51,9 @@
 .no-scroll {
     overflow: hidden;
 }
+
+/* Night Mode */
+.subreddit-header-dark {
+    background: rgb(26, 26, 27);
+    color: rgb(215, 218, 220);
+}

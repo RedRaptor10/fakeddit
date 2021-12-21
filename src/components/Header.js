@@ -118,31 +118,31 @@ const Header = ({user}) => {
 				<div className="user-btn">
 					<div className="user-dropdown-btn" onClick={() => {setDropdown(true)}}></div>
 					{dropdown ?
-						<div className={nightMode ? "user-dropdown-menu user-dropdown-menu-night" : "user-dropdown-menu"}>
+						<div className={!nightMode ? "user-dropdown-menu" : "user-dropdown-menu user-dropdown-menu-dark"}>
 							<div className="dropdown-header">VIEW OPTIONS</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"} onClick={() => { toggleNightMode(nightMode, setNightMode) }}>
+							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"} onClick={() => { toggleNightMode(nightMode, setNightMode) }}>
 								Night Mode
-								<button className={nightMode ? "night-mode-btn night-mode-btn-night" : "night-mode-btn"} type="button">
-									<div className={nightMode ? "night-mode-btn-switch night-mode-btn-switch-night" : "night-mode-btn-switch"}></div>
+								<button className={!nightMode ? "night-mode-btn" : "night-mode-btn night-mode-btn-dark"} type="button">
+									<div className={!nightMode ? "night-mode-btn-switch" : "night-mode-btn-switch night-mode-btn-switch-dark"}></div>
 								</button>
 							</div>
 							<div className="dropdown-header">MORE STUFF</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Coins</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Premium</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Powerups</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Talk</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Predictions</div>
-							<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"}>Help Center</div>
+							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Coins</div>
+							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Premium</div>
+							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Powerups</div>
+							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Talk</div>
+							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Predictions</div>
+							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Help Center</div>
 							{user ?
-								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"} onClick={logOut}>Log Out</div>
+								<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"} onClick={logOut}>Log Out</div>
 							:
-								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"} onClick={() => {
+								<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"} onClick={() => {
 									setDropdown(false);
 									setLogInForm(true);
 								}}>Log In / Sign Up</div>
 							}
 							{user ?
-								<div className={nightMode ? "dropdown-item dropdown-item-night" : "dropdown-item"} onClick={deleteAccount}>Delete Account</div>
+								<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"} onClick={deleteAccount}>Delete Account</div>
 							: null}
 						</div>
 					: null}

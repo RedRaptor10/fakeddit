@@ -115,3 +115,22 @@
 .post-box-btn:hover {
     background: rgba(26, 26, 27, 0.1);
 }
+
+/* Night Mode */
+.post-box-votes-container-dark {
+    background: rgb(39, 39, 41);
+}
+
+.post-box-dark {
+    background: rgb(26, 26, 27);
+    color: rgb(215, 218, 220);
+}
+
+.post-box-subreddit-dark {
+    color: rgb(215, 218, 220);
+}
+
+.post-box-flair-dark {
+    background: rgb(39, 39, 41) !important;
+	color: rgb(215, 218, 220);
+}
