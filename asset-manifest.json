@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/fakeddit/static/css/main.4c369e34.chunk.css",
-    "main.js": "/fakeddit/static/js/main.f0e5e5e0.chunk.js",
-    "main.js.map": "/fakeddit/static/js/main.f0e5e5e0.chunk.js.map",
+    "main.js": "/fakeddit/static/js/main.8fe913cf.chunk.js",
+    "main.js.map": "/fakeddit/static/js/main.8fe913cf.chunk.js.map",
     "runtime-main.js": "/fakeddit/static/js/runtime-main.fa257a2f.js",
     "runtime-main.js.map": "/fakeddit/static/js/runtime-main.fa257a2f.js.map",
     "static/js/2.08c4310d.chunk.js": "/fakeddit/static/js/2.08c4310d.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.fa257a2f.js",
     "static/js/2.08c4310d.chunk.js",
     "static/css/main.4c369e34.chunk.css",
-    "static/js/main.f0e5e5e0.chunk.js"
+    "static/js/main.8fe913cf.chunk.js"
   ]
 }
