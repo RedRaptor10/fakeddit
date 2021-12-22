@@ -69,6 +69,7 @@ const Home = ({user, setUser, nightMode}) => {
 							<ul>
 								<li>Create / delete account</li>
 								<li>Log in / log out account</li>
+								<li>Toggle night mode</li>
 								<li>Browse different subfakeddits</li>
 								<li>Create / delete posts & comments</li>
 								<li>Upvote / downvote posts & comments</li>
