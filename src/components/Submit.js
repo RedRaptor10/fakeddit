@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
+import "../styles/Submit.css";
 
-const Submit = ({user}) => {
+const Submit = ({user, nightMode}) => {
 	const { slug } = useParams(); // Get subreddit slug from url
 	const [title, setTitle] = useState('');
 	const [text, setText] = useState('');
@@ -59,29 +60,37 @@ const Submit = ({user}) => {
 	};
 
 	return (
-		<div className="submit">
-			{user ?
-				<div>
-					<h3>Create a post</h3>
-					<div>r/{slug}</div>
-					<div>
-						<input type="text" placeholder="My first post" onChange={handleTitle} />
-					</div>
-					<div>
-						<textarea onChange={handleText} />
-					</div>
-					{error !== '' ?
-                        <div className="error-msg">{error}</div>
-                    : null}
-					{flairs.map((flair, i) => {
-						return (
-							<div key={i} className="flair" onClick={pickFlair}>{flair}</div>
-						);
-					})}
-					<button className="post-submit-btn" onClick={submitPost}>Post</button>
+		user ?
+			<div className={!nightMode ? "submit" : "submit submit-dark"}>
+				<h3>Create a post</h3>
+				<div className="submit-subreddit">
+					Subfakeddit: <Link to={`/r/${slug}`}>r/{slug}</Link>
 				</div>
-			: null}
-		</div>
+				<div className="submit-title">
+					<div className="submit-label">Title</div>
+					<input type="text" placeholder="My first post" onChange={handleTitle} />
+				</div>
+				<div className="submit-text">
+					<div className="submit-label">Text</div>
+					<textarea onChange={handleText} />
+				</div>
+				{error !== '' ?
+					<div className="error-msg">{error}</div>
+				: null}
+				<div className="submit-flairs-container">
+					<div className="submit-label">Flairs</div>
+					<div className="submit-flairs">
+						{flairs.map((flair, i) => {
+							return (
+								<div key={i} className={`submit-flair ${activeFlairs.includes(flair) ? `submit-flair-active` : null}`}
+								onClick={pickFlair}>{flair}</div>
+							);
+						})}
+					</div>
+				</div>
+				<button className="submit-btn" onClick={submitPost}>Post</button>
+			</div>
+		: null
 	);
 }
 
