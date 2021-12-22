@@ -9,7 +9,7 @@ import { SubredditContext } from "./subredditContext";
 import formatNumber from "../functions/formatNumber";
 import "../styles/Post.css";
 
-const Post = ({user, setUser}) => {
+const Post = ({user, setUser, nightMode}) => {
     const { slug, postId } = useParams(); // Get post id from url
     const [post, setPost] = useState({
         id: '',
@@ -62,7 +62,7 @@ const Post = ({user, setUser}) => {
     }, [slug, postId]);
 
     return (
-        <div className="post">
+        <div className={!nightMode ? "post" : "post post-dark"}>
             <Link to={`/r/${slug}`}>
                 <div className="canvas post-canvas" />
             </Link>
@@ -88,11 +88,12 @@ const Post = ({user, setUser}) => {
                 <div className="post-body">
                     <div className="post-content-container">
                         <PostBox user={user} setUser={setUser} post={post} setPost={setPost} posts={posts} setPosts={setPosts}
-                            activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={true} />
-                        <Reply user={user} post={post} setPost={setPost} parent='' />
-                        <Comments user={user} setUser={setUser} post={post} setPost={setPost} />
+                            activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={true} nightMode={nightMode} />
+                        <Reply user={user} post={post} setPost={setPost} parent='' nightMode={nightMode} />
+                        <Comments user={user} setUser={setUser} post={post} setPost={setPost} nightMode={nightMode} />
                     </div>
-                    <SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors} activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={true} />
+                    <SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors}
+                        activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={true} nightMode={nightMode} />
                 </div>
             </div>
         </div>

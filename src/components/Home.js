@@ -5,7 +5,7 @@ import PostBox from "./PostBox";
 import { sortByHot } from "../functions/sorts";
 import "../styles/Home.css";
 
-const Home = ({user, setUser}) => {
+const Home = ({user, setUser, nightMode}) => {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
@@ -33,18 +33,18 @@ const Home = ({user, setUser}) => {
 	}, []);
 
 	return (
-		<div className="home">
+		<div className={!nightMode ? "home" : "home home-dark"}>
 			<div className="home-header">
 				Popular posts
 			</div>
 			<div className="home-body">
 				<div className="home-posts-container">
-					<Sortbar posts={posts} setPosts={setPosts} />
+					<Sortbar posts={posts} setPosts={setPosts} nightMode={nightMode} />
 					{posts.length !== 0 ?
 						posts.map((post) => {
 							return (
 								<PostBox key={post.id} user={user} propSlug={post.subreddit} setUser={setUser}
-									post={post} posts={posts} setPosts={setPosts} />
+									post={post} posts={posts} setPosts={setPosts} nightMode={nightMode} />
 							);
 						})
 					: null

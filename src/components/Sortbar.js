@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { sortByHot, sortByBest, sortByTop, sortByDateNew, sortByDateOld, sortByControversial } from "../functions/sorts";
 import "../styles/Sortbar.css";
 
-const Sortbar = ({posts, setPosts, comments, setComments}) => {
+const Sortbar = ({posts, setPosts, comments, setComments, nightMode}) => {
     const [sortTypePosts, setSortTypePosts] = useState('hot');
     const [sortTypeComments, setSortTypeComments] = useState('best');
     const [dropdown, setDropdown] = useState(false);
@@ -37,7 +37,7 @@ const Sortbar = ({posts, setPosts, comments, setComments}) => {
     };
 
     return (
-        <div className="sortbar">
+        <div className={!nightMode ? "sortbar" : "sortbar sortbar-dark"}>
         { posts ?
             <div className="sortbar-posts">
                 <div className={`sortbar-btn ${sortTypePosts === 'hot' ? `sortbar-btn-active` : ''}`} onClick={() => {

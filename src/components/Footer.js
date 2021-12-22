@@ -1,9 +1,9 @@
 import React from "react";
 import "../styles/Footer.css";
 
-const Footer = () => {
+const Footer = ({nightMode}) => {
 	return (
-		<div className="footer">
+		<div className={!nightMode ? "footer" : "footer footer-dark"}>
             <div className="footer-content">
 			    <ul>
                     <li>About</li>

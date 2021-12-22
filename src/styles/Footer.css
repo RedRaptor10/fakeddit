@@ -54,3 +54,8 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+/* Night Mode */
+.footer-dark {
+    background: rgb(58, 82, 89);
+}

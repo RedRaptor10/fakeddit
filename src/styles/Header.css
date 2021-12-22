@@ -184,56 +184,48 @@
 }
 
 /* Night Mode */
-.background-1-dark {
-    background: rgb(0, 0, 0);
-}
-
-.background-2-dark {
-	background: rgb(26, 26, 27);
-}
-
 .header-dark {
 	background: rgb(26, 26, 27);
 	border-bottom: 1px solid rgb(52, 53, 54);
 }
 
-.header-title-dark {
+.header-dark .header-title {
 	color: rgb(215, 218, 220);
 }
 
-.search-field-dark {
+.header-dark .search-field {
 	background: rgb(39, 39, 41);
 	color: rgb(215, 218, 220);
 	border: 1px solid rgb(52, 53, 54);
 }
 
-.user-btn-dark {
+.header-dark .user-btn {
 	color: rgb(215, 218, 220);
 }
 
-.user-dropdown-menu-dark {
+.header-dark .user-dropdown-menu {
 	background: rgb(26, 26, 27);
 }
 
-.dropdown-item-dark {
+.header-dark .dropdown-item {
 	color: rgb(215, 218, 220);
 }
 
-.night-mode-btn-dark {
+.header-dark .night-mode-btn {
 	background: rgb(0, 121, 211);
 }
 
-.night-mode-btn-switch-dark {
+.header-dark .night-mode-btn-switch {
 	left: 12px;
 }
 
-.login-btn-dark {
+.header-dark .login-btn {
 	background: rgb(26, 26, 27);
 	color: rgb(215, 218, 220);
 	border: 1px solid rgb(215, 218, 220);
 }
 
-.signup-btn-dark {
+.header-dark .signup-btn {
 	background: rgb(215, 218, 220);
 	color: rgb(26, 26, 27);
 	border: 1px solid rgb(215, 218, 220);

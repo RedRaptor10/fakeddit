@@ -113,3 +113,13 @@
 .reply-sidebar {
     width: 64px;
 }
+
+/* Night Mode */
+.post-dark .post-main {
+    background: rgb(8, 8, 8);
+}
+
+.post-dark .post-content-container {
+    background: rgb(26, 26, 27);
+    color: rgb(215, 218, 220);
+}

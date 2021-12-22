@@ -56,3 +56,12 @@
     color: initial;
     text-decoration: none;
 }
+
+/* Night Mode */
+.search-dark .search-result {
+    background: rgb(26, 26, 27);
+}
+
+.search-dark .search-result a {
+    color: rgb(215, 218, 220);
+}

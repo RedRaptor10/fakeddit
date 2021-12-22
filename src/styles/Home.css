@@ -65,3 +65,13 @@
     padding: 8px 8px 8px 0;
     font-size: 14px;
 }
+
+/* Night Mode */
+.home-dark .home-sidebar-section {
+    background: rgb(26, 26, 27);
+    color: rgb(215, 218, 220);
+}
+
+.home-dark .home-sidebar-section-header {
+    background: rgb(39, 39, 41);
+}

@@ -5,7 +5,7 @@ import getElapsedTime from "../functions/getElapsedTime";
 import formatNumber from "../functions/formatNumber";
 import "../styles/Search.css";
 
-const Search = () => {
+const Search = ({nightMode}) => {
     const { searchQuery } = useParams(); // Get search query from url
     const [posts, setPosts] = useState([]);
 
@@ -34,7 +34,7 @@ const Search = () => {
     }, [searchQuery]);
 
     return (
-        <div className="search">
+        <div className={!nightMode ? "search" : "search search-dark"}>
             <div className="search-results">
                 {posts.map((post, i) => {
                     return (

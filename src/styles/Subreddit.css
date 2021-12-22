@@ -53,7 +53,7 @@
 }
 
 /* Night Mode */
-.subreddit-header-dark {
+.subreddit-dark .subreddit-header {
     background: rgb(26, 26, 27);
     color: rgb(215, 218, 220);
 }

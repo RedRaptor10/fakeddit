@@ -8,6 +8,7 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 
 - Create / delete account
 - Log in / log out account
+- Toggle Night Mode
 - Browse different subfakeddits
 - Create / delete posts & comments
 - Upvote / downvote posts & comments
@@ -25,9 +26,6 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 - CSS
 
 # To Do
-
-- Improve submit form CSS
-- Improve night mode
 - (Optional) Fix post header votes
 - (Optional) Improve post previews
 - (Optional) Add filter / sort search results

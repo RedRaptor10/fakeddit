@@ -4,14 +4,13 @@ import { getAuth, signOut, deleteUser } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs, doc, deleteDoc, updateDoc, deleteField } from "firebase/firestore";
 import LogIn from "./LogIn";
 import '../styles/Header.css';
-import toggleNightMode from '../functions/toggleNightMode';
+//import toggleNightMode from '../functions/toggleNightMode';
 
-const Header = ({user}) => {
+const Header = ({user, nightMode, setNightMode}) => {
 	const [searchInput, setSearchInput] = useState('');
 	const [logInForm, setLogInForm] = useState(false);
 	const [signUpForm, setSignUpForm] = useState(false);
 	const [dropdown, setDropdown] = useState(false);
-	const [nightMode, setNightMode] = useState(false);
 	const navigate = useNavigate();
 
 	const handleInput = (event) => {
@@ -83,8 +82,18 @@ const Header = ({user}) => {
 		});
 	}
 
+	const toggleNightMode = () => {
+		if (!nightMode) {
+			document.body.classList.add('body-dark');
+			setNightMode(true);
+		} else {
+			document.body.classList.remove('body-dark');
+			setNightMode(false);
+		}
+	};
+
 	return (
-		<div className="header">
+		<div className={!nightMode ? "header" : "header header-dark"}>
 			{dropdown ?
 				<div className="canvas" onClick={() => {setDropdown(false)}} />
 			: null}
@@ -118,41 +127,41 @@ const Header = ({user}) => {
 				<div className="user-btn">
 					<div className="user-dropdown-btn" onClick={() => {setDropdown(true)}}></div>
 					{dropdown ?
-						<div className={!nightMode ? "user-dropdown-menu" : "user-dropdown-menu user-dropdown-menu-dark"}>
+						<div className="user-dropdown-menu">
 							<div className="dropdown-header">VIEW OPTIONS</div>
-							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"} onClick={() => { toggleNightMode(nightMode, setNightMode) }}>
+							<div className="dropdown-item" onClick={toggleNightMode}>
 								Night Mode
-								<button className={!nightMode ? "night-mode-btn" : "night-mode-btn night-mode-btn-dark"} type="button">
-									<div className={!nightMode ? "night-mode-btn-switch" : "night-mode-btn-switch night-mode-btn-switch-dark"}></div>
+								<button className="night-mode-btn" type="button">
+									<div className="night-mode-btn-switch" />
 								</button>
 							</div>
 							<div className="dropdown-header">MORE STUFF</div>
-							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Coins</div>
-							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Premium</div>
-							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Powerups</div>
-							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Talk</div>
-							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Predictions</div>
-							<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"}>Help Center</div>
+							<div className="dropdown-item">Coins</div>
+							<div className="dropdown-item">Premium</div>
+							<div className="dropdown-item">Powerups</div>
+							<div className="dropdown-item">Talk</div>
+							<div className="dropdown-item">Predictions</div>
+							<div className="dropdown-item">Help Center</div>
 							{user ?
-								<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"} onClick={logOut}>Log Out</div>
+								<div className="dropdown-item" onClick={logOut}>Log Out</div>
 							:
-								<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"} onClick={() => {
+								<div className="dropdown-item" onClick={() => {
 									setDropdown(false);
 									setLogInForm(true);
 								}}>Log In / Sign Up</div>
 							}
 							{user ?
-								<div className={!nightMode ? "dropdown-item" : "dropdown-item dropdown-item-dark"} onClick={deleteAccount}>Delete Account</div>
+								<div className="dropdown-item" onClick={deleteAccount}>Delete Account</div>
 							: null}
 						</div>
 					: null}
 				</div>
 			</div>
 			{logInForm ?
-				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={true} />
+				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={true} nightMode={nightMode} />
 			: null}
 			{signUpForm ?
-				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={false} />
+				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={false} nightMode={nightMode} />
 			: null}
 		</div>
 	);

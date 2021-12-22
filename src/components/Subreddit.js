@@ -7,7 +7,7 @@ import SubSidebar from "./SubSidebar";
 import { SubredditContext } from "./subredditContext"; // Import Context allows passing of props to child Post component
 import "../styles/Subreddit.css";
 
-const Subreddit = ({user, setUser}) => {
+const Subreddit = ({user, setUser, nightMode}) => {
 	const { slug } = useParams(); // Get subreddit slug from url
 	const [subreddit, setSubreddit] = useState({
 		slug: '',
@@ -106,7 +106,7 @@ const Subreddit = ({user, setUser}) => {
 	};
 
 	return (
-		<div className="subreddit">
+		<div className={!nightMode ? "subreddit" : "subreddit-dark"}>
 			<div className="subreddit-banner" style={
 				{
 					backgroundImage: 'url(' + banner + ')',
@@ -124,14 +124,14 @@ const Subreddit = ({user, setUser}) => {
 			</div>
 			<div className="subreddit-body">
 				<div className="subreddit-posts-container">
-					<Sortbar posts={posts} setPosts={setPosts} />
+					<Sortbar posts={posts} setPosts={setPosts} nightMode={nightMode} />
 					{posts.length !== 0 ?
 						posts.map((post) => {
 							return (
 								/* Render post if there are no active flairs OR post has an active flair */
 								activeFlairs.length === 0 || hasActiveFlair(post.flairs) ?
 									<PostBox key={post.id} user={user} setUser={setUser} post={post} posts={posts} setPosts={setPosts}
-										activeFlairs={activeFlairs} pickFlair={pickFlair} />
+										activeFlairs={activeFlairs} pickFlair={pickFlair} nightMode={nightMode} />
 								: null
 							);
 						})
@@ -139,7 +139,7 @@ const Subreddit = ({user, setUser}) => {
 					}
 				</div>
 				<SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors}
-					activeFlairs={activeFlairs} pickFlair={pickFlair} />
+					activeFlairs={activeFlairs} pickFlair={pickFlair} nightMode={nightMode} />
 			</div>
 			<SubredditContext.Provider value={{subreddit, colors, posts, setPosts, activeFlairs, pickFlair}}>
 				<Outlet /> {/* Nested route for Post component */}

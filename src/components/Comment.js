@@ -4,7 +4,7 @@ import Reply from "./Reply";
 import formatNumber from "../functions/formatNumber";
 import getElapsedTime from "../functions/getElapsedTime";
 
-const Comment = ({user, setUser, comment, comments, setComments, post, setPost}) => {
+const Comment = ({user, setUser, comment, comments, setComments, post, setPost, nightMode}) => {
     const [collapsed, setCollapsed] = useState(false);
     const [showCommentsReply, setShowCommentsReply] = useState(false);
     const [upvoted, setUpvoted] = useState(false);
@@ -149,7 +149,7 @@ const Comment = ({user, setUser, comment, comments, setComments, post, setPost})
 	};
 
     return (
-        <div className="comment-container" id={comment.id}>
+        <div className={!nightMode ? "comment-container" : "comment-container : comment-container-dark"} id={comment.id}>
             <div className={`comment-sidebar ${collapsed ? `comment-collapsed` : ''}`}>
                 {collapsed ?
                     <div className="comment-expand" onClick={() => { setCollapsed(false) }} />
@@ -203,13 +203,13 @@ const Comment = ({user, setUser, comment, comments, setComments, post, setPost})
                     : null}
                 </div>
                 {!collapsed && showCommentsReply ?
-                    <Reply user={user} post={post} setPost={setPost} parent={comment.id} />
+                    <Reply user={user} post={post} setPost={setPost} parent={comment.id} nightMode={nightMode} />
                 : null}
                 {!collapsed && comment.replies.length > 0 ?
                     <div className="replies">
                         {comment.replies.map((reply) => {
                             return (
-                                <Comment user={user} comment={reply} post={post} setPost={setPost} key={reply.id} />
+                                <Comment user={user} comment={reply} post={post} setPost={setPost} key={reply.id} nightMode={nightMode} />
                             );
                         })}
                     </div>

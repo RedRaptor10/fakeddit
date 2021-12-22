@@ -18,6 +18,7 @@ const App = () => {
 	initializeApp(firebaseAppConfig);
 
 	const [user, setUser] = useState();
+	const [nightMode, setNightMode] = useState(false);
 
 	// Set Logged In observer on componentDidMount
 	useEffect(() => {
@@ -51,17 +52,17 @@ const App = () => {
 
 	return (
 		<HashRouter>
-			<Header user={user} />
+			<Header user={user} nightMode={nightMode} setNightMode={setNightMode} />
 			<Routes>
-				<Route exact path="/" element={<Home user={user} setUser={setUser} />} />
-				<Route exact path="/search/:searchQuery" element={<Search />} />
-				<Route path="/r/:slug" element={<Subreddit user={user} setUser={setUser} />}>
+				<Route exact path="/" element={<Home user={user} setUser={setUser} nightMode={nightMode} />} />
+				<Route exact path="/search/:searchQuery" element={<Search nightMode={nightMode} />} />
+				<Route path="/r/:slug" element={<Subreddit user={user} setUser={setUser} nightMode={nightMode} />}>
 					{/* Nested route for Post component using relative path */}
-					<Route exact path="comments/:postId/:postTitle" element={<Post user={user} setUser={setUser} />} />
+					<Route exact path="comments/:postId/:postTitle" element={<Post user={user} setUser={setUser} nightMode={nightMode} />} />
 				</Route>
-				<Route exact path="/r/:slug/submit" element={<Submit user={user} />} />
+				<Route exact path="/r/:slug/submit" element={<Submit user={user} nightMode={nightMode} />} />
 			</Routes>
-			<Footer />
+			<Footer nightMode={nightMode} />
 		</HashRouter>
 	);
 };

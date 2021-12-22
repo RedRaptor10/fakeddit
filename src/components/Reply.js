@@ -4,7 +4,7 @@ import { getFirestore, addDoc, collection, doc, updateDoc } from "firebase/fires
 import LogIn from "./LogIn";
 import "../styles/Reply.css";
 
-const Reply = ({user, post, setPost, parent}) => {
+const Reply = ({user, post, setPost, parent, nightMode}) => {
     const { slug } = useParams(); // Get subreddit slug from url
     const [reply, setReply] = useState('');
     const [error, setError] = useState('');
@@ -65,7 +65,7 @@ const Reply = ({user, post, setPost, parent}) => {
     };
 
     return (
-        <div className="reply">
+        <div className={!nightMode ? "reply" : "reply reply-dark"}>
             {user ?
                 <div className={`reply-form ${parent === '' ? `reply-form-post` : ''}`}>
                     <textarea className="reply-input" placeholder="Comment on this post" onChange={handleReply} />
@@ -81,10 +81,10 @@ const Reply = ({user, post, setPost, parent}) => {
 				<button className="signup-btn" onClick={() => {setSignUpForm(true)}}>Sign Up</button>
             </div>}
             {logInForm ?
-				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={true} />
+				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={true} nightMode={nightMode} />
 			: null}
 			{signUpForm ?
-				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={false} />
+				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={false} nightMode={nightMode} />
 			: null}
         </div>
     );
