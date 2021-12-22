@@ -4,7 +4,6 @@ import { getAuth, signOut, deleteUser } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs, doc, deleteDoc, updateDoc, deleteField } from "firebase/firestore";
 import LogIn from "./LogIn";
 import '../styles/Header.css';
-//import toggleNightMode from '../functions/toggleNightMode';
 
 const Header = ({user, nightMode, setNightMode}) => {
 	const [searchInput, setSearchInput] = useState('');
