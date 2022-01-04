@@ -78,11 +78,19 @@
 	cursor: pointer;
 }
 
+.login-btn:hover {
+	background: rgb(211, 245, 255);
+}
+
 .signup-btn {
 	background: rgb(0, 121, 211);
 	color: rgb(255, 255, 255);
 	border: 1px solid rgb(0, 121, 211);
 	cursor: pointer;
+}
+
+.signup-btn:hover {
+	background: rgb(0, 128, 255);
 }
 
 .user-btn {

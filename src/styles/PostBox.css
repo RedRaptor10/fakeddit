@@ -76,6 +76,15 @@
     align-items: center;
 }
 
+.post-box-title a {
+    color: initial;
+    text-decoration: none;
+}
+
+.post-box-title a:hover {
+    text-decoration: underline;
+}
+
 .post-box-flair {
     background: rgb(237, 239, 241);
     margin: 4px;
@@ -128,6 +137,14 @@
 
 .post-box-container-dark .post-box-subreddit {
     color: rgb(215, 218, 220);
+}
+
+.post-box-container-dark .post-box-title a {
+    color: rgb(215, 218, 220);
+}
+
+.post-box-title a:hover {
+    text-decoration: underline;
 }
 
 .post-box-container-dark .post-box-flair {

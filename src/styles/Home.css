@@ -35,6 +35,10 @@
     text-decoration: none;
 }
 
+.home-sidebar a:hover {
+    text-decoration: underline;
+}
+
 .home-sidebar-section {
     background: rgb(255, 255, 255);
     width: 100%;
