@@ -179,7 +179,11 @@ const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activ
                             );
                         })
                         : null}
-                        <h3>{post.title}</h3>
+                        <h3>
+                            <Link to={`/r/${slug}/comments/${post.id}/${post.title}`}>
+                                {post.title}
+                            </Link>
+                        </h3>
                     </div>
                     <div className="post-box-text">
                         {post.text}
