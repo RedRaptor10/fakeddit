@@ -4,6 +4,7 @@
 
 .subreddit-banner {
     background: rgb(237, 239, 241);
+    background-size: cover;
     height: 128px;
 }
 
