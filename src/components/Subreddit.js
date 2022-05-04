@@ -22,7 +22,9 @@ const Subreddit = ({user, setUser, nightMode}) => {
 	});
 	const [posts, setPosts] = useState([]);
 	const [activeFlairs, setActiveFlairs] = useState([]);
-	const { title, banner, icon, color } = subreddit;
+	const { title, color } = subreddit;
+	const banner = subreddit.banner !== '' ? require(`../assets/${subreddit.banner}`).default : null;
+	const icon = subreddit.icon !== '' ? require(`../assets/${subreddit.icon}`).default : null;
 	const colors = {
 		LightBlue: 'rgb(0, 121, 211)',
 		DarkBlue: 'rgb(0, 64, 121)'
@@ -107,15 +109,13 @@ const Subreddit = ({user, setUser, nightMode}) => {
 
 	return (
 		<div className={!nightMode ? "subreddit" : "subreddit-dark"}>
-			<div className="subreddit-banner" style={
-				{
-					backgroundImage: 'url(' + banner + ')',
-					backgroundColor: colors[color]
-				}
-			} />
+			<div className="subreddit-banner" style={{
+				backgroundImage: 'url(' + banner + ')',
+				backgroundColor: colors[color]
+			}} />
 			<div className="subreddit-header">
 				<div className="subreddit-header-content">
-					<img className="subreddit-icon" url={icon} alt="" />
+					<img className="subreddit-icon" src={icon} alt="" />
 					<div className="subreddit-title">
 						<h1>{title}</h1>
 						<div className="subreddit-name">r/{slug}</div>
