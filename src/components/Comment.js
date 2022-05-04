@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getFirestore, doc, updateDoc, deleteField, deleteDoc } from "firebase/firestore";
 import Reply from "./Reply";
+import avatarDefault from '../assets/avatar-default.png';
 import formatNumber from "../functions/formatNumber";
 import getElapsedTime from "../functions/getElapsedTime";
 
@@ -154,7 +155,7 @@ const Comment = ({user, setUser, comment, comments, setComments, post, setPost, 
                 {collapsed ?
                     <div className="comment-expand" onClick={() => { setCollapsed(false) }} />
                 : null}
-                <div className="comment-avatar" />
+                <img className="comment-avatar" src={avatarDefault} alt='' />
                 {!collapsed ?
                     <div className="comment-threadline" onClick={() => { setCollapsed(true) }} />
                 : null}
