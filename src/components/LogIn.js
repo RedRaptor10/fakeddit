@@ -18,7 +18,9 @@ const LogIn = ({setLogInForm, setSignUpForm, logIn, nightMode}) => {
         });
     };
 
-    const processLogIn = () => {
+    const processLogIn = event => {
+        event.preventDefault();
+
         // Check if username exists
         const checkUsername = async () => {
             const db = getFirestore();
@@ -66,7 +68,9 @@ const LogIn = ({setLogInForm, setSignUpForm, logIn, nightMode}) => {
         }
     };
 
-    const processSignUp = () => {
+    const processSignUp = event => {
+        event.preventDefault();
+
         // Check if username exists
         const checkUsername = async () => {
             const db = getFirestore();
@@ -143,12 +147,12 @@ const LogIn = ({setLogInForm, setSignUpForm, logIn, nightMode}) => {
                     }} />
                 </div>
                 {logIn ?
-                <div className="log-in-form">
+                <form className="log-in-form" action="">
                     <h1>Login</h1>
                     <div>By continuing, you agree to our <span className="link">User Agreement</span> and <span className="link">Privacy Policy</span>.</div>
                     <input type="text" name="username" value={form.username} placeholder="Username" onChange={handleChange} />
-                    <input type="text" name="password" value={form.password} placeholder="Password" onChange={handleChange} />
-                    <button className="log-in-form-submit-btn" onClick={processLogIn}>Log In</button>
+                    <input type="password" name="password" value={form.password} placeholder="Password" onChange={handleChange} />
+                    <button type="submit" className="log-in-form-submit-btn" onClick={processLogIn}>Log In</button>
                     <div className="log-in-form-bottom">
                         <div>Forgot your <span className="link">username</span> or <span className="link">password</span>?</div>
                         <div>New to Fakeddit? <span className="link" onClick={() => {
@@ -156,23 +160,23 @@ const LogIn = ({setLogInForm, setSignUpForm, logIn, nightMode}) => {
                             setSignUpForm(true);
                         }}>SIGN UP</span></div>
                     </div>
-                </div>
+                </form>
                 :
-                <div className="log-in-form">
+                <form className="log-in-form" action="">
                     <h1>Sign up</h1>
                     <div>By continuing, you are setting up a Fakeddit account and agree to our <span className="link">User Agreement</span> and <span className="link">Privacy Policy</span>.</div>
-                    <input type="text" name="email" value={form.email} placeholder="Email" onChange={handleChange} />
+                    <input type="email" name="email" value={form.email} placeholder="Email" onChange={handleChange} />
                     <input type="text" name="username" value={form.username} placeholder="Username" onChange={handleChange} />
-                    <input type="text" name="password" value={form.password} placeholder="Password" onChange={handleChange} />
-                    <input type="text" name="confirmPassword" value={form.confirmPassword} placeholder="Confirm Password" onChange={handleChange} />
-                    <button className="log-in-form-submit-btn" onClick={processSignUp}>Continue</button>
+                    <input type="password" name="password" value={form.password} placeholder="Password" onChange={handleChange} />
+                    <input type="password" name="confirmPassword" value={form.confirmPassword} placeholder="Confirm Password" onChange={handleChange} />
+                    <button type="submit" className="log-in-form-submit-btn" onClick={processSignUp}>Continue</button>
                     <div className="log-in-form-bottom">
                         <div>Already a Fakedditor? <span className="link" onClick={() => {
                             setLogInForm(true);
                             setSignUpForm(false);
                         }}>LOG IN</span></div>
                     </div>
-                </div>
+                </form>
                 }
             </div>
         </div>
