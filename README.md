@@ -4,6 +4,8 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 
 [Live Demo](https://redraptor10.github.io/fakeddit)
 
+![Fakeddit](/src/assets/preview.jpg)
+
 # Features
 
 - Create / delete account
@@ -26,7 +28,7 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 - CSS
 
 # To Do
-- (Optional) Fix post header votes
-- (Optional) Improve post previews
-- (Optional) Add filter / sort search results
-- (Optional) Add autocomplete / search suggestions
+- Fix post header votes
+- Improve post previews
+- Add filter / sort search results
+- Add autocomplete / search suggestions
