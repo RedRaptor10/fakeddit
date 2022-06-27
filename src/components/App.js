@@ -55,12 +55,12 @@ const App = () => {
 			<Header user={user} nightMode={nightMode} setNightMode={setNightMode} />
 			<Routes>
 				<Route exact path="/" element={<Home user={user} setUser={setUser} nightMode={nightMode} />} />
-				<Route exact path="/search/:searchQuery" element={<Search nightMode={nightMode} />} />
-				<Route path="/r/:slug" element={<Subreddit user={user} setUser={setUser} nightMode={nightMode} />}>
+				<Route path="/search/:searchQuery" element={<Search nightMode={nightMode} />} />
+				<Route exact path="/r/:slug" element={<Subreddit user={user} setUser={setUser} nightMode={nightMode} />}>
 					{/* Nested route for Post component using relative path */}
-					<Route exact path="comments/:postId/:postTitle" element={<Post user={user} setUser={setUser} nightMode={nightMode} />} />
+					<Route path="comments/:postId/:postTitle" element={<Post user={user} setUser={setUser} nightMode={nightMode} />} />
 				</Route>
-				<Route exact path="/r/:slug/submit" element={<Submit user={user} nightMode={nightMode} />} />
+				<Route path="/r/:slug/submit" element={<Submit user={user} nightMode={nightMode} />} />
 			</Routes>
 			<Footer nightMode={nightMode} />
 		</HashRouter>
