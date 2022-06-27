@@ -7,7 +7,7 @@ const Submit = ({user, nightMode}) => {
 	const { slug } = useParams(); // Get subreddit slug from url
 	const [title, setTitle] = useState('');
 	const [text, setText] = useState('');
-	const { flairs } = useLocation().state;
+	const location = useLocation(); // Get location object to be used for flairs
 	const [activeFlairs, setActiveFlairs] = useState([]);
 	const [error, setError] = useState('');
 	const navigate = useNavigate();
@@ -60,7 +60,7 @@ const Submit = ({user, nightMode}) => {
 	};
 
 	return (
-		user ?
+		user && location.state ?
 			<div className={!nightMode ? "submit" : "submit submit-dark"}>
 				<h3>Create a post</h3>
 				<div className="submit-subreddit">
@@ -80,7 +80,7 @@ const Submit = ({user, nightMode}) => {
 				<div className="submit-flairs-container">
 					<div className="submit-label">Flairs</div>
 					<div className="submit-flairs">
-						{flairs.map((flair, i) => {
+						{location.state.map((flair, i) => {
 							return (
 								<div key={i} className={`submit-flair ${activeFlairs.includes(flair) ? `submit-flair-active` : null}`}
 								onClick={pickFlair}>{flair}</div>

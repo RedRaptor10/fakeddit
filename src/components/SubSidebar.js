@@ -35,7 +35,8 @@ const SubSidebar = ({ user, slug, subreddit, colors, activeFlairs, pickFlair, po
                     </div>
                     {user ?
                         <div className="subreddit-sidebar-section-create">
-                            <Link to="submit" state={{flairs: flairs}}>
+                            {/* Pass flairs as a state to Submit page */}
+                            <Link to="submit" state={flairs}>
                                 <div className="subreddit-sidebar-section-create-btn" style={
                                     color ? {
                                         background: colors[color],
