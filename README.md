@@ -10,7 +10,7 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 
 To use the app, log-in with the following existing account or create your own.
 
-- Email: johndoe@johndoe.com
+- Username: johndoe
 - Password: johndoe
 
 # Features
