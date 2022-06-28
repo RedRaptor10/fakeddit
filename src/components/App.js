@@ -23,7 +23,7 @@ const App = () => {
 	// Set Logged In observer on componentDidMount
 	useEffect(() => {
 		const auth = getAuth();
-		auth.onAuthStateChanged((userAuth) => {
+		auth.onAuthStateChanged(userAuth => {
 			if (userAuth) {
 				const db = getFirestore();
 
@@ -31,7 +31,7 @@ const App = () => {
 				const getUser = async () => {
 					const q = query(collection(db, "users"), where("email", "==", auth.currentUser.email));
 					const querySnapshot = await getDocs(q);
-					querySnapshot.forEach((doc) => {
+					querySnapshot.forEach(doc => {
 						setUser({
 							id: doc.id, // Add document id to user object
 							email: doc.data().email,
