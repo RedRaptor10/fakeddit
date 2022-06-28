@@ -38,50 +38,41 @@ const Subreddit = ({user, setUser, nightMode}) => {
 			const docSnap = await getDoc(docRef);
 
 			if (docSnap.exists()) {
-				return docSnap.data();
-			} else {
-				return null;
+				setSubreddit(docSnap.data());
 			}
 		};
 
 		const getPosts = async () => {
-				const db = getFirestore();
-				const postsRef = collection(db, "posts");
-				const q = query(postsRef, where("subreddit", "==", slug));
-				const querySnap = await getDocs(q);
-				const postsArray = [];
+			const db = getFirestore();
+			const postsRef = collection(db, "posts");
+			const q = query(postsRef, where("subreddit", "==", slug));
+			const querySnap = await getDocs(q);
+			const postsArray = [];
 
-				// Add fetched posts to posts array
-				querySnap.forEach(post => {
-					// Push post data along with post id to array
-					postsArray.push({
-						...post.data(),
-						id: post.id
-					});
+			// Add fetched posts to posts array
+			querySnap.forEach(post => {
+				// Push post data along with post id to array
+				postsArray.push({
+					...post.data(),
+					id: post.id
 				});
+			});
 
-				// Sort posts array by date (desc)
-				postsArray.sort((a, b) => {
-					return b.date - a.date;
-				});
+			// Sort posts array by date (desc)
+			postsArray.sort((a, b) => {
+				return b.date - a.date;
+			});
 
-				setPosts(postsArray.slice());
+			setPosts(postsArray.slice());
 		};
 
-		// Get Subreddit data from Promise
-		getSubreddit()
-		.then((data) => {
-			setSubreddit(data);
-		})
-		.catch((error) => {
-			console.log(error);
-		});
-
+		// Get Subreddit and Posts data
+		getSubreddit();
 		getPosts();
 	}, [slug]);
 
 	// Add/remove flair to active flairs
-	const pickFlair = (flair) => {
+	const pickFlair = flair => {
 		const temp = activeFlairs.slice();
 
 		// If flair already picked, remove flair, otherwise add flair
@@ -96,9 +87,9 @@ const Subreddit = ({user, setUser, nightMode}) => {
     };
 
 	// Check if post has an active flair
-	const hasActiveFlair = (postFlairs) => {
+	const hasActiveFlair = postFlairs => {
 		let includes = false;
-		postFlairs.forEach((f) => {
+		postFlairs.forEach(f => {
 			if (activeFlairs.includes(f)) {
 				includes = true;
 			}
