@@ -34,24 +34,15 @@ const Post = ({user, setUser, nightMode}) => {
 			const docSnap = await getDoc(docRef);
 
 			if (docSnap.exists()) {
-                // Return post data along with post id
-				return {
+                // Set post data along with post id
+				setPost({
                     ...docSnap.data(),
                     id: docSnap.id
-                };
-			} else {
-				return null;
+                });
 			}
         };
 
-        // Get Post data from Promise
-        getPost()
-        .then((p) => {
-            setPost(p);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+        getPost();
 
         // Disable scroll on parent Subreddit
         document.body.classList.add("no-scroll");
@@ -75,13 +66,9 @@ const Post = ({user, setUser, nightMode}) => {
                             <div className="post-downvote-btn" />
                             {formatNumber(downvotes)}
                         </div>
-                        <div className="post-title">
-                            {title}
-                        </div>
+                        <div className="post-title">{title}</div>
                         <Link to={`/r/${slug}`} className="post-close-btn-container">
-                            <div className="post-close-btn">
-                                Close
-                            </div>
+                            <div className="post-close-btn">Close</div>
                         </Link>
                     </div>
                 </div>

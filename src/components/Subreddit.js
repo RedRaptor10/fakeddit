@@ -63,7 +63,7 @@ const Subreddit = ({user, setUser, nightMode}) => {
 				return b.date - a.date;
 			});
 
-			setPosts(postsArray.slice());
+			setPosts(postsArray);
 		};
 
 		// Get Subreddit and Posts data

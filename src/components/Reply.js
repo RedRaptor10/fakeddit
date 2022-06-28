@@ -33,7 +33,7 @@ const Reply = ({user, post, setPost, parent, nightMode}) => {
 			.then(() => {
                 // Clear reply input
                 const replyInputs = document.querySelectorAll('.reply-input');
-                replyInputs.forEach((replyInput) => {
+                replyInputs.forEach(replyInput => {
                     replyInput.value = '';
                 });
                 setReply('');
@@ -46,18 +46,16 @@ const Reply = ({user, post, setPost, parent, nightMode}) => {
                     await updateDoc(postRef, {
                         comments: post.comments + 1
                     })
-                    .catch((error) => {
+                    .catch(error => {
                         console.log(error);
                     });
                 })();
 
                 // Increment comment count in post object
-                setPost(
-                    {
-                        ...post,
-                        comments: post.comments + 1
-                    }
-                );
+                setPost({
+                    ...post,
+                    comments: post.comments + 1
+                });
             });
 		} else {
 			setError('All fields required.');

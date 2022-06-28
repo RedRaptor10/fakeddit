@@ -12,11 +12,11 @@ const Header = ({user, nightMode, setNightMode}) => {
 	const [dropdown, setDropdown] = useState(false);
 	const navigate = useNavigate();
 
-	const handleInput = (event) => {
+	const handleInput = event => {
 		setSearchInput(event.target.value);
 	};
 
-	const submitSearch = (event) => {
+	const submitSearch = event => {
 		if (event.keyCode === 13) {
 			navigate("/search/" + searchInput);
 		}
@@ -26,7 +26,7 @@ const Header = ({user, nightMode, setNightMode}) => {
 		const auth = getAuth();
 		signOut(auth).then(() => {
 			setDropdown(false);
-		}).catch((error) => {
+		}).catch(error => {
 			console.log(error);
 		});
 	};
@@ -40,7 +40,7 @@ const Header = ({user, nightMode, setNightMode}) => {
 			const q = query(collection(db, "users"), where("email", "==", auth.currentUser.email));
 			const querySnapshot = await getDocs(q);
 			let docId = '';
-			querySnapshot.forEach((doc) => {
+			querySnapshot.forEach(doc => {
 				docId = doc.id;
 			});
 
@@ -67,7 +67,7 @@ const Header = ({user, nightMode, setNightMode}) => {
 
 		// Delete Account
 		getDocId()
-		.then((id) => {
+		.then(id => {
 			deleteDocFields(id)
 			.then(() => { deleteDocument(id) })
 			.then(() => { deleteUser(auth.currentUser) })
@@ -75,7 +75,7 @@ const Header = ({user, nightMode, setNightMode}) => {
 				setDropdown(false);
 				console.log('Successfully deleted account');
 			})
-			.catch((error) => {
+			.catch(error => {
 				console.log(error);
 			});
 		});

@@ -86,7 +86,7 @@ const Comment = ({user, setUser, comment, comments, setComments, post, setPost, 
         // Update comments state in Comments component
         const temp = comments.slice();
         // Find comment in temp array, then update comment upvotes
-        temp.forEach((c) => {
+        temp.forEach(c => {
             if (c.id === comment.id) {
                 c.upvotes = newUpvotes;
                 c.downvotes = newDownvotes;
@@ -131,20 +131,18 @@ const Comment = ({user, setUser, comment, comments, setComments, post, setPost, 
                 await updateDoc(postRef, {
                     comments: post.comments - 1
                 })
-                .catch((error) => {
+                .catch(error => {
                     console.log(error);
                 });
             })();
 
             // Decrement comment count in post object
-            setPost(
-                {
-                    ...post,
-                    comments: post.comments - 1
-                }
-            );
+            setPost({
+                ...post,
+                comments: post.comments - 1
+            });
         })
-        .catch((error) => {
+        .catch(error => {
             console.log(error);
         });
 	};

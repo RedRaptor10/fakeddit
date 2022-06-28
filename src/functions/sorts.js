@@ -1,13 +1,13 @@
 /* Sort by hot
 Sort by date (desc), split between recent (last 24 hrs) and old,
 then sort recent by top (desc) */
-const sortByHot = (array) => {
+const sortByHot = array => {
     sortByDateNew(array);
 
     const date = new Date();
     const array1 = [];
     const array2 = [];
-    array.forEach((p) => {
+    array.forEach(p => {
         const deltaSeconds = (date.getTime() / 1000) - p.date.seconds;
         const deltaHours = deltaSeconds / 60 / 60;
         deltaHours <= 24 ? array1.push(p) : array2.push(p);
@@ -18,7 +18,7 @@ const sortByHot = (array) => {
 };
 
 // Sort by best (upvotes / downvotes) (desc)
-const sortByBest = (array) => {
+const sortByBest = array => {
     array.sort((a, b) => {
         // Check for zero divisor
         let resultA = (a.downvotes === 0) ? a.upvotes : a.upvotes / a.downvotes;
@@ -29,34 +29,34 @@ const sortByBest = (array) => {
 };
 
 // Sort by top (votes) (desc)
-const sortByTop = (array) => {
+const sortByTop = array => {
     array.sort((a, b) => {
         return (b.upvotes - b.downvotes) - (a.upvotes - a.downvotes);
     });
 };
 
 // Sort by date (desc)
-const sortByDateNew = (array) => {
+const sortByDateNew = array => {
     array.sort((a, b) => {
         return b.date - a.date;
     });
 };
 
 // Sort by date (asc)
-const sortByDateOld = (array) => {
+const sortByDateOld = array => {
     array.sort((a, b) => {
         return a.date - b.date;
     });
 };
 
 // Sort by controversial (desc)
-const sortByControversial = (array) => {
-    array.forEach((comment) => {
+const sortByControversial = array => {
+    array.forEach(comment => {
         let totalReplies = comment.replies.length;
 
         if (comment.replies > 0) {
-            const loopReplies = (branch) => {
-                branch.forEach((reply) => {
+            const loopReplies = branch => {
+                branch.forEach(reply => {
                     totalReplies++;
 
                     // If current comment has replies, recursively loop through each reply
@@ -79,7 +79,7 @@ const sortByControversial = (array) => {
     });
 
     // Delete totalReplies property from comments
-    array.forEach((comment) => {
+    array.forEach(comment => {
         delete comment.totalReplies;
     });
 };

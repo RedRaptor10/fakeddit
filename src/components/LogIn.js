@@ -46,7 +46,7 @@ const LogIn = ({setLogInForm, setSignUpForm, logIn, nightMode}) => {
             .then(() => {
                 setLogInForm(false);
             })
-            .catch((error) => {
+            .catch(error => {
                 if (error.code === 'auth/wrong-password') {
                     setError('Wrong password.');
                 }
@@ -59,7 +59,7 @@ const LogIn = ({setLogInForm, setSignUpForm, logIn, nightMode}) => {
             setError('All fields required.');
         } else {
             checkUsername()
-            .then((email) => {
+            .then(email => {
                 logIn(email, form.password);
             })
             .catch((error) => {
@@ -107,7 +107,7 @@ const LogIn = ({setLogInForm, setSignUpForm, logIn, nightMode}) => {
                 createUserWithEmailAndPassword(auth, form.email, form.password)
                 .then(createAccount)
                 .then(() => { setSignUpForm(false); })
-                .catch((error) => {
+                .catch(error => {
                     if (error.code === 'auth/weak-password') {
                         setError('Password must have at least 6 characters.');
                     } else if (error.code === 'auth/invalid-email') {
@@ -118,7 +118,7 @@ const LogIn = ({setLogInForm, setSignUpForm, logIn, nightMode}) => {
                     console.log(error);
                 });
             })
-            .catch((error) => {
+            .catch(error => {
                 setError(error.message);
                 console.log(error);
             });

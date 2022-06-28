@@ -46,10 +46,10 @@ const Comments = ({user, setUser, post, setPost, nightMode}) => {
             });
 
             // Recursively loop through each comment and add all child comments/replies
-            const addReplies = (branch) => {
-                branch.forEach((comment) => {
+            const addReplies = branch => {
+                branch.forEach(comment => {
                     // Go through all comments and check if it's a reply to current comment
-                    allComments.forEach((allComment) => {
+                    allComments.forEach(allComment => {
                         if (allComment.parentId === comment.id) {
                             // Add reply to replies array
                             comment.replies.push(allComment);
@@ -69,7 +69,7 @@ const Comments = ({user, setUser, post, setPost, nightMode}) => {
 
         getComments()
         .then(nestComments)
-        .catch((error) => {
+        .catch(error => {
             console.log(error);
         });
     }, [post]);

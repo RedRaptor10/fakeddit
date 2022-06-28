@@ -87,7 +87,7 @@ const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activ
         // Update posts state in Subreddit component
         const temp = posts.slice();
         // Find post in temp array, then update post upvotes
-        temp.forEach((p) => {
+        temp.forEach(p => {
             if (p.id === post.id) {
                 p.upvotes = newUpvotes;
                 p.downvotes = newDownvotes;
@@ -131,9 +131,9 @@ const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activ
 
 		// Delete Post
         deleteDocFields(post.id)
-        .then(() => { deleteDocument(post.id) })
+        .then(() => { deleteDocument(post.id); })
         .then(() => { setDeleted(true); })
-        .catch((error) => {
+        .catch(error => {
             console.log(error);
         });
 	};
@@ -150,9 +150,7 @@ const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activ
                             vote('up');
                         } : null
                     } />
-                    <div className="post-box-votes">
-                        {formatNumber(post.upvotes - post.downvotes)}
-                    </div>
+                    <div className="post-box-votes">{formatNumber(post.upvotes - post.downvotes)}</div>
                     <div className={`post-box-downvote-btn ${user && downvoted ? `post-box-downvoted` : ''}`} onClick={
                         user ? () => {
                             vote('down');
@@ -180,18 +178,12 @@ const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activ
                         })
                         : null}
                         <h3>
-                            <Link to={`/r/${slug}/comments/${post.id}/${post.title}`}>
-                                {post.title}
-                            </Link>
+                            <Link to={`/r/${slug}/comments/${post.id}/${post.title}`}>{post.title}</Link>
                         </h3>
                     </div>
-                    <div className="post-box-text">
-                        {post.text}
-                    </div>
+                    <div className="post-box-text">{post.text}</div>
                     <div className="post-box-btns-container">
-                        <Link to={`/r/${slug}/comments/${post.id}/${post.title}`} className="post-box-btn">
-                            {post.comments} comments
-                        </Link>
+                        <Link to={`/r/${slug}/comments/${post.id}/${post.title}`} className="post-box-btn">{post.comments} comments</Link>
                         {user && post.author === user.username ?
                             <div className="post-box-btn" onClick={deletePost}>Delete</div>
                         : null}
