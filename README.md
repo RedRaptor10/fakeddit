@@ -6,6 +6,13 @@ A clone of a popular website created through [TheOdinProject](https://www.theodi
 
 ![Fakeddit](/src/assets/preview.jpg)
 
+# User Credentials
+
+To use the app, log-in with the following existing account or create your own.
+
+- Email: johndoe@johndoe.com
+- Password: johndoe
+
 # Features
 
 - Create / delete account
