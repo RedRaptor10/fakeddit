@@ -136,8 +136,8 @@ const Header = ({user, nightMode, setNightMode}) => {
 				:
 					<div className="header-username">{user.username}</div>
 				}
-				<div className="user-btn">
-					<div className="user-dropdown-btn" onClick={() => {setDropdown(true)}}></div>
+				<div className="user-btn" onClick={() => {setDropdown(true)}}>
+					<div className="user-dropdown-btn"></div>
 					{dropdown ?
 						<div className="user-dropdown-menu">
 							<div className="dropdown-header">VIEW OPTIONS</div>
