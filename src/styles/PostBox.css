@@ -67,6 +67,10 @@
     text-decoration: underline;
 }
 
+.post-box-author-user {
+    color: rgb(0, 128, 0);
+}
+
 .post-box-date {
     margin-left: 8px;
 }

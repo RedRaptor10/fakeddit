@@ -162,7 +162,9 @@ const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activ
                         {propSlug ?
                             <Link to={`/r/${propSlug}`} className="post-box-subreddit">r/{propSlug}</Link>
                         : null}
-                        <span className="post-box-author">Posted by u/{post.author}</span>
+                        <span className="post-box-author">Posted by&nbsp;
+                            <span className={user && post.author === user.username ? 'post-box-author-user' : ''}>u/{post.author}</span>
+                        </span>
                         <span className="post-box-date">{getElapsedTime(post.date.seconds)}</span>
                     </div>
                     <div className="post-box-title">
