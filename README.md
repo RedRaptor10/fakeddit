@@ -1,17 +1,10 @@
 # Fakeddit
 
-A clone of a popular website created through [TheOdinProject](https://www.theodinproject.com) online course. Created with React using Firebase backend.
+A clone of a popular social media website. Created with React using Firebase backend.
 
 [Live Demo](https://redraptor10.github.io/fakeddit)
 
 ![Fakeddit](/src/assets/preview.jpg)
-
-# User Credentials
-
-To use the app, log-in with the following existing account or create your own.
-
-- Username: johndoe
-- Password: johndoe
 
 # Features
 
