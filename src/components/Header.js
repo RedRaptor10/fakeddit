@@ -27,7 +27,7 @@ const Header = ({user, nightMode, setNightMode}) => {
 		}
 	};
 
-	const testLogIn = async () => {
+	const sampleLogIn = async () => {
 		const auth = getAuth();
 		signInWithEmailAndPassword(auth, sampleAccount.email, sampleAccount.password);
 	};
@@ -128,12 +128,14 @@ const Header = ({user, nightMode, setNightMode}) => {
 			</div>
 			<div className="header-right">
 				{!user ?
-				<div className="header-btns-container">
-					<button className="header-btn sample-btn" onClick={testLogIn}>Use A Sample Account</button>
-					<button className="header-btn login-btn" onClick={() => {setLogInForm(true)}}>Log In</button>
-					<button className="header-btn signup-btn" onClick={() => {setSignUpForm(true)}}>Sign Up</button>
-				</div>
-				: null}
+					<div className="header-btns-container">
+						<button className="header-btn sample-btn" onClick={sampleLogIn}>Use A Sample Account</button>
+						<button className="header-btn login-btn" onClick={() => {setLogInForm(true)}}>Log In</button>
+						<button className="header-btn signup-btn" onClick={() => {setSignUpForm(true)}}>Sign Up</button>
+					</div>
+				:
+					<div className="header-username">{user.username}</div>
+				}
 				<div className="user-btn">
 					<div className="user-dropdown-btn" onClick={() => {setDropdown(true)}}></div>
 					{dropdown ?

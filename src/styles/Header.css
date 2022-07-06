@@ -101,6 +101,11 @@
 	background: rgb(0, 128, 255);
 }
 
+.header-username {
+	margin-right: 16px;
+	font-size: 14px;
+}
+
 .user-btn {
 	display: flex;
 	justify-content: center;
@@ -216,6 +221,22 @@
 	border: 1px solid rgb(52, 53, 54);
 }
 
+.header-dark .login-btn {
+	background: rgb(26, 26, 27);
+	color: rgb(215, 218, 220);
+	border: 1px solid rgb(215, 218, 220);
+}
+
+.header-dark .signup-btn, .header-dark .sample-btn {
+	background: rgb(215, 218, 220);
+	color: rgb(26, 26, 27);
+	border: 1px solid rgb(215, 218, 220);
+}
+
+.header-dark .header-username {
+	color: rgb(215, 218, 220);
+}
+
 .header-dark .user-btn {
 	color: rgb(215, 218, 220);
 }
@@ -234,16 +255,4 @@
 
 .header-dark .night-mode-btn-switch {
 	left: 12px;
-}
-
-.header-dark .login-btn {
-	background: rgb(26, 26, 27);
-	color: rgb(215, 218, 220);
-	border: 1px solid rgb(215, 218, 220);
-}
-
-.header-dark .signup-btn, .header-dark .sample-btn {
-	background: rgb(215, 218, 220);
-	color: rgb(26, 26, 27);
-	border: 1px solid rgb(215, 218, 220);
 }
