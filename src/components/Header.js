@@ -162,7 +162,7 @@ const Header = ({user, nightMode, setNightMode}) => {
 									setLogInForm(true);
 								}}>Log In / Sign Up</div>
 							}
-							{user ?
+							{user && user.username !== sampleAccount.username ?
 								<div className="dropdown-item" onClick={deleteAccount}>Delete Account</div>
 							: null}
 						</div>
