@@ -56,7 +56,7 @@ const Home = ({user, setUser, nightMode}) => {
 						<div className="home-sidebar-section-content">
 							Fakeddit is a clone of a popular social media website.
 							<br /><br />
-							View source code <a href="https://github.com/RedRaptor10/fakeddit">here</a>.
+							View source code <a href="https://github.com/RedRaptor10/fakeddit" target="_blank" rel="noreferrer">here</a>.
 						</div>
 					</div>
 					<div className="home-sidebar-section">

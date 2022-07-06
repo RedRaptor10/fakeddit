@@ -32,7 +32,6 @@ const Footer = ({nightMode}) => {
                     <li>Privacy Policy</li>
                     <li>User Agreement</li>
                     <li>Mod Policy</li>
-                    <li>Fakeddit created through <a href="https://www.theodinproject.com/">TheOdinProject</a> online course.</li>
                 </ul>
             </div>
 		</div>

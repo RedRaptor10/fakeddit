@@ -50,7 +50,7 @@
     padding: 4px;
 }
 
-.footer-bottom ul li:not(li:last-child) {
+.footer-bottom ul li {
     text-decoration: underline;
     cursor: pointer;
 }
