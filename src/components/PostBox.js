@@ -185,7 +185,8 @@ const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activ
                     </div>
                     <div className="post-box-text">{post.text}</div>
                     <div className="post-box-btns-container">
-                        <Link to={`/r/${slug}/comments/${post.id}/${post.title}`} className="post-box-btn">{post.comments} comments</Link>
+                        <Link to={`/r/${slug}/comments/${post.id}/${post.title}`} className="post-box-btn">
+                            {post.comments} {post.comments === 1 ? 'comment' : 'comments'}</Link>
                         {user && post.author === user.username ?
                             <div className="post-box-btn" onClick={deletePost}>Delete</div>
                         : null}
