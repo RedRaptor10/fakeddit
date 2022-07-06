@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/fakeddit/static/css/main.50b57e4c.chunk.css",
-    "main.js": "/fakeddit/static/js/main.6e027e6b.chunk.js",
-    "main.js.map": "/fakeddit/static/js/main.6e027e6b.chunk.js.map",
+    "main.css": "/fakeddit/static/css/main.63e1027d.chunk.css",
+    "main.js": "/fakeddit/static/js/main.513cae3a.chunk.js",
+    "main.js.map": "/fakeddit/static/js/main.513cae3a.chunk.js.map",
     "runtime-main.js": "/fakeddit/static/js/runtime-main.fa257a2f.js",
     "runtime-main.js.map": "/fakeddit/static/js/runtime-main.fa257a2f.js.map",
-    "static/js/2.4844efa3.chunk.js": "/fakeddit/static/js/2.4844efa3.chunk.js",
-    "static/js/2.4844efa3.chunk.js.map": "/fakeddit/static/js/2.4844efa3.chunk.js.map",
+    "static/js/2.5422de24.chunk.js": "/fakeddit/static/js/2.5422de24.chunk.js",
+    "static/js/2.5422de24.chunk.js.map": "/fakeddit/static/js/2.5422de24.chunk.js.map",
     "index.html": "/fakeddit/index.html",
-    "static/css/main.50b57e4c.chunk.css.map": "/fakeddit/static/css/main.50b57e4c.chunk.css.map",
-    "static/js/2.4844efa3.chunk.js.LICENSE.txt": "/fakeddit/static/js/2.4844efa3.chunk.js.LICENSE.txt",
+    "static/css/main.63e1027d.chunk.css.map": "/fakeddit/static/css/main.63e1027d.chunk.css.map",
+    "static/js/2.5422de24.chunk.js.LICENSE.txt": "/fakeddit/static/js/2.5422de24.chunk.js.LICENSE.txt",
     "static/media/movies-banner.png": "/fakeddit/static/media/movies-banner.df3d9cd1.png",
     "static/media/movies-icon.jpg": "/fakeddit/static/media/movies-icon.0c5d95c1.jpg",
     "static/media/news-icon.png": "/fakeddit/static/media/news-icon.9ab6c1a5.png",
@@ -17,8 +17,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.fa257a2f.js",
-    "static/js/2.4844efa3.chunk.js",
-    "static/css/main.50b57e4c.chunk.css",
-    "static/js/main.6e027e6b.chunk.js"
+    "static/js/2.5422de24.chunk.js",
+    "static/css/main.63e1027d.chunk.css",
+    "static/js/main.513cae3a.chunk.js"
   ]
 }
