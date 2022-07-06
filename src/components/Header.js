@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getAuth, signOut, deleteUser } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut, deleteUser } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs, doc, deleteDoc, updateDoc, deleteField } from "firebase/firestore";
 import LogIn from "./LogIn";
 import '../styles/Header.css';
@@ -11,6 +11,11 @@ const Header = ({user, nightMode, setNightMode}) => {
 	const [signUpForm, setSignUpForm] = useState(false);
 	const [dropdown, setDropdown] = useState(false);
 	const navigate = useNavigate();
+	const sampleAccount = {
+		username: 'johndoe',
+		email: 'johndoe@johndoe.com',
+		password: 'johndoe'
+	};
 
 	const handleInput = event => {
 		setSearchInput(event.target.value);
@@ -20,6 +25,11 @@ const Header = ({user, nightMode, setNightMode}) => {
 		if (event.keyCode === 13) {
 			navigate("/search/" + searchInput);
 		}
+	};
+
+	const testLogIn = async () => {
+		const auth = getAuth();
+		signInWithEmailAndPassword(auth, sampleAccount.email, sampleAccount.password);
 	};
 
 	const logOut = () => {
@@ -119,6 +129,7 @@ const Header = ({user, nightMode, setNightMode}) => {
 			<div className="header-right">
 				{!user ?
 				<div className="header-btns-container">
+					<button className="header-btn sample-btn" onClick={testLogIn}>Use A Sample Account</button>
 					<button className="header-btn login-btn" onClick={() => {setLogInForm(true)}}>Log In</button>
 					<button className="header-btn signup-btn" onClick={() => {setSignUpForm(true)}}>Sign Up</button>
 				</div>
