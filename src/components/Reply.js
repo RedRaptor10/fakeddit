@@ -74,7 +74,7 @@ const Reply = ({user, post, setPost, parent, nightMode}) => {
                 </div>
             :
             <div>
-                <span>Log in or Sign up to leave a comment</span>
+                <span className="reply-prompt">Log in or Sign up to leave a comment</span>
                 <button className="reply-btn login-btn" onClick={() => {setLogInForm(true)}}>Log In</button>
 				<button className="reply-btn signup-btn" onClick={() => {setSignUpForm(true)}}>Sign Up</button>
             </div>}

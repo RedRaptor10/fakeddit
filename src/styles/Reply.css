@@ -12,20 +12,33 @@
 	font-weight: bold;
 }
 
+.reply-prompt {
+    margin-right: 96px;
+}
+
+.reply-form-post {
+    width: 95%;
+}
+
 .reply-input {
     display: block;
     background: rgb(218, 224, 230);
-    width: 90%;
+    width: 100%;
+    height: 64px;
+    padding: 8px;
+    font-family: Sans-serif;
+    font-size: 14px;
     border: 0;
     border-radius: 4px;
+    box-sizing: border-box;
     resize: none;
 }
 
 .reply-submit-btn {
+    display: block;
     background: rgb(0, 121, 211);
-    margin-top: 4px;
-    margin-bottom: 4px;
-    padding: 4px;
+    margin: 8px 0 8px auto;
+    padding: 4px 8px;
     color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: bold;
