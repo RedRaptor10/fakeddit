@@ -2,7 +2,7 @@
 
 A clone of a popular social media website. Created with React using Firebase backend.
 
-[Live Demo](https://redraptor10.github.io/fakeddit)
+[View Demo](https://redraptor10.github.io/fakeddit)
 
 ![Fakeddit](/src/assets/preview.jpg)
 
