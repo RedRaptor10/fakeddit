@@ -21,7 +21,8 @@
 }
 
 .log-in-form-close {
-    text-align: end;
+    padding: 8px;
+    text-align: right;
 }
 
 .log-in-form-close-btn::before {
