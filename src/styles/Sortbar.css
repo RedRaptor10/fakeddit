@@ -56,11 +56,15 @@
 }
 
 /* Night Mode */
-.sortbar-dark .sortbar-posts {
+main.dark .sortbar-posts {
     background: rgb(26, 26, 27);
 }
 
-.sortbar-dark .sortbar-btn {
+main.dark .sortbar-btn {
     background: rgb(39, 39, 41) !important;
 	color: rgb(215, 218, 220);
+}
+
+main.dark .sortbar-comments-dropdown {
+    background: rgb(26, 26, 27);
 }

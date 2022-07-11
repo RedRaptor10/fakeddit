@@ -99,7 +99,7 @@ const Subreddit = ({user, setUser, nightMode}) => {
 	};
 
 	return (
-		<div className={!nightMode ? "subreddit" : "subreddit-dark"}>
+		<main className={!nightMode ? 'subreddit' : 'subreddit dark'}>
 			<div className="subreddit-banner" style={{
 				backgroundImage: 'url(' + banner + ')',
 				backgroundColor: colors[color]
@@ -115,14 +115,14 @@ const Subreddit = ({user, setUser, nightMode}) => {
 			</div>
 			<div className="subreddit-body">
 				<div className="subreddit-posts-container">
-					<Sortbar posts={posts} setPosts={setPosts} nightMode={nightMode} />
+					<Sortbar posts={posts} setPosts={setPosts} />
 					{posts.length !== 0 ?
 						posts.map((post) => {
 							return (
 								/* Render post if there are no active flairs OR post has an active flair */
 								activeFlairs.length === 0 || hasActiveFlair(post.flairs) ?
 									<PostBox key={post.id} user={user} setUser={setUser} post={post} posts={posts} setPosts={setPosts}
-										activeFlairs={activeFlairs} pickFlair={pickFlair} nightMode={nightMode} />
+										activeFlairs={activeFlairs} pickFlair={pickFlair} />
 								: null
 							);
 						})
@@ -130,12 +130,12 @@ const Subreddit = ({user, setUser, nightMode}) => {
 					}
 				</div>
 				<SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors}
-					activeFlairs={activeFlairs} pickFlair={pickFlair} nightMode={nightMode} />
+					activeFlairs={activeFlairs} pickFlair={pickFlair} />
 			</div>
 			<SubredditContext.Provider value={{subreddit, colors, posts, setPosts, activeFlairs, pickFlair}}>
 				<Outlet /> {/* Nested route for Post component */}
 			</SubredditContext.Provider>
-		</div>
+		</main>
 	);
 }
 

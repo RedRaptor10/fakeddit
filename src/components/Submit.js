@@ -61,7 +61,7 @@ const Submit = ({user, nightMode}) => {
 
 	return (
 		user && location.state ?
-			<div className={!nightMode ? "submit" : "submit submit-dark"}>
+			<main className={!nightMode ? 'submit' : 'submit dark'}>
 				<h3>Create a post</h3>
 				<div className="submit-subreddit">
 					Subfakeddit: <Link to={`/r/${slug}`}>r/{slug}</Link>
@@ -89,7 +89,7 @@ const Submit = ({user, nightMode}) => {
 					</div>
 				</div>
 				<button className="submit-btn" onClick={submitPost}>Post</button>
-			</div>
+			</main>
 		: null
 	);
 }

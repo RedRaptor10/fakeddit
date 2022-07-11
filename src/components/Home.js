@@ -33,18 +33,18 @@ const Home = ({user, setUser, nightMode}) => {
 	}, []);
 
 	return (
-		<div className={!nightMode ? "home" : "home home-dark"}>
+		<main className={!nightMode ? 'home' : 'home dark'}>
 			<div className="home-header">
 				Popular posts
 			</div>
 			<div className="home-body">
 				<div className="home-posts-container">
-					<Sortbar posts={posts} setPosts={setPosts} nightMode={nightMode} />
+					<Sortbar posts={posts} setPosts={setPosts} />
 					{posts.length !== 0 ?
 						posts.map((post) => {
 							return (
 								<PostBox key={post.id} user={user} propSlug={post.subreddit} setUser={setUser}
-									post={post} posts={posts} setPosts={setPosts} nightMode={nightMode} />
+									post={post} posts={posts} setPosts={setPosts} />
 							);
 						})
 					: null
@@ -90,7 +90,7 @@ const Home = ({user, setUser, nightMode}) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 	);
 }
 

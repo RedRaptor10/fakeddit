@@ -85,12 +85,12 @@
 }
 
 /* Night Mode */
-.log-in-dark .log-in-form-container {
+header.dark .log-in-form-container, main.dark .log-in-form-container {
     background: rgb(26, 26, 27);
     color: rgb(215, 218, 220);
 }
 
-.log-in-dark .log-in-form input {
+header.dark .log-in-form input, main.dark .log-in-form input {
     background: rgb(39, 39, 41);
 	color: rgb(215, 218, 220);
 	border: 1px solid rgb(52, 53, 54);

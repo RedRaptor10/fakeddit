@@ -9,7 +9,7 @@ import { SubredditContext } from "./subredditContext";
 import formatNumber from "../functions/formatNumber";
 import "../styles/Post.css";
 
-const Post = ({user, setUser, nightMode}) => {
+const Post = ({user, setUser}) => {
     const { slug, postId } = useParams(); // Get post id from url
     const [post, setPost] = useState({
         id: '',
@@ -53,7 +53,7 @@ const Post = ({user, setUser, nightMode}) => {
     }, [slug, postId]);
 
     return (
-        <div className={!nightMode ? "post" : "post post-dark"}>
+        <div className="post">
             <Link to={`/r/${slug}`}>
                 <div className="canvas post-canvas" />
             </Link>
@@ -75,12 +75,12 @@ const Post = ({user, setUser, nightMode}) => {
                 <div className="post-body">
                     <div className="post-content-container">
                         <PostBox user={user} setUser={setUser} post={post} setPost={setPost} posts={posts} setPosts={setPosts}
-                            activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={true} nightMode={nightMode} />
-                        <Reply user={user} post={post} setPost={setPost} parent='' nightMode={nightMode} />
-                        <Comments user={user} setUser={setUser} post={post} setPost={setPost} nightMode={nightMode} />
+                            activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={true} />
+                        <Reply user={user} post={post} setPost={setPost} parent='' />
+                        <Comments user={user} setUser={setUser} post={post} setPost={setPost} />
                     </div>
                     <SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors}
-                        activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={true} nightMode={nightMode} />
+                        activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={true} />
                 </div>
             </div>
         </div>

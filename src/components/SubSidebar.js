@@ -4,11 +4,11 @@ import secondsToDate from "../functions/secondsToDate";
 import formatNumber from "../functions/formatNumber";
 import "../styles/SubSidebar.css";
 
-const SubSidebar = ({ user, slug, subreddit, colors, activeFlairs, pickFlair, postPage, nightMode }) => {
+const SubSidebar = ({ user, slug, subreddit, colors, activeFlairs, pickFlair, postPage }) => {
     const { description, members, color, flairs, created } = subreddit;
 
     return (
-        <div className={!nightMode ? "subreddit-sidebar" : "subreddit-sidebar subreddit-sidebar-dark"}>
+        <div className="subreddit-sidebar">
             <div className="subreddit-sidebar-section">
                 <div className="subreddit-sidebar-section-header" style={
                     color ? {

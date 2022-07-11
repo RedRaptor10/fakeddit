@@ -15,6 +15,16 @@
     margin-bottom: 12px;
 }
 
+.submit-subreddit a {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.submit-subreddit a:hover {
+    text-decoration: underline;
+}
+
 .submit-title, .submit-text {
     width: 100%;
     margin-bottom: 12px;
@@ -24,8 +34,15 @@
     font-weight: bold;
 }
 
-.submit-title input, .submit-text textarea {
+.submit-title input {
     width: 50%;
+    height: 32px;
+    resize: none;
+}
+
+.submit-text textarea {
+    width: 50%;
+    height: 128px;
     resize: none;
 }
 
@@ -57,6 +74,7 @@
 
 .submit-btn {
     background: rgb(0, 121, 211);
+    padding: 4px 16px;
     color: rgb(255, 255, 255);
     font-size: 18px;
     font-weight: bold;
@@ -66,20 +84,26 @@
 }
 
 /* Night Mode */
-.submit-dark {
+main.submit.dark {
     color: rgb(215, 218, 220);
 }
 
-.submit-dark input, .submit-dark textarea {
+main.dark .submit-subreddit a {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+main.dark input, main.dark textarea {
     background: rgb(39, 39, 41);
 	color: rgb(215, 218, 220);
 	border: 1px solid rgb(52, 53, 54);
 }
 
-.submit-dark .submit-flair {
+main.dark .submit-flair {
     background: rgb(39, 39, 41);
 }
 
-.submit-dark .submit-flair a {
+main.dark .submit-flair a {
     color: rgb(215, 218, 220);
 }

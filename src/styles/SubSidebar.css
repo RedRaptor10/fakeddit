@@ -90,16 +90,15 @@
 }
 
 /* Night Mode */
-.subreddit-sidebar-dark .home-sidebar-section-content,
-.subreddit-sidebar-dark .subreddit-sidebar-section {
+main.dark .home-sidebar-section-content, main.dark .subreddit-sidebar-section {
     background: rgb(26, 26, 27);
     color: rgb(215, 218, 220);
 }
 
-.subreddit-sidebar-dark .subreddit-sidebar-section-flair {
+main.dark .subreddit-sidebar-section-flair {
     background: rgb(39, 39, 41);
 }
 
-.subreddit-sidebar-dark .subreddit-sidebar-section-flair a {
+main.dark .subreddit-sidebar-section-flair a {
     color: rgb(215, 218, 220);
 }

@@ -5,7 +5,7 @@ import formatNumber from "../functions/formatNumber";
 import getElapsedTime from "../functions/getElapsedTime";
 import "../styles/PostBox.css";
 
-const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activeFlairs, pickFlair, postPage, nightMode}) => {
+const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activeFlairs, pickFlair, postPage}) => {
     let { slug } = useParams(); // Get subreddit slug from url
     if (propSlug) { slug = propSlug; } // If propSlug passed from Home component, set slug to propSlug
     const [upvoted, setUpvoted] = useState(false);
@@ -139,7 +139,7 @@ const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activ
 	};
 
     return (
-        <div className={!nightMode ? "post-box-container" : "post-box-container-dark"}>
+        <div className="post-box-container">
             { deleted ?
 				<Navigate to={`/`} />
             :

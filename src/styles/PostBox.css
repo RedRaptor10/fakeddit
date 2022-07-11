@@ -130,31 +130,39 @@
 }
 
 /* Night Mode */
-.post-box-container-dark .post-box-votes-container {
+main.dark .post-box-votes-container {
     background: rgb(39, 39, 41);
 }
 
-.post-box-container-dark .post-box {
+main.dark .post .post-box-votes-container {
+    background: none;
+}
+
+main.dark .post-box {
     background: rgb(26, 26, 27);
     color: rgb(215, 218, 220);
 }
 
-.post-box-container-dark .post-box-subreddit {
+main.dark .post-box-subreddit {
     color: rgb(215, 218, 220);
 }
 
-.post-box-container-dark .post-box-title a {
+main.dark .post-box-meta {
     color: rgb(215, 218, 220);
 }
 
-.post-box-title a:hover {
+main.dark .post-box-title a {
+    color: rgb(215, 218, 220);
+}
+
+main.dark .post-box-title a:hover {
     text-decoration: underline;
 }
 
-.post-box-container-dark .post-box-flair {
+main.dark .post-box-flair {
     background: rgb(39, 39, 41);
 }
 
-.post-box-container-dark .post-box-flair a {
+main.dark .post-box-flair a {
     color: rgb(215, 218, 220);
 }

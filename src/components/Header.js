@@ -93,16 +93,16 @@ const Header = ({user, nightMode, setNightMode}) => {
 
 	const toggleNightMode = () => {
 		if (!nightMode) {
-			document.body.classList.add('body-dark');
+			document.body.classList.add('dark');
 			setNightMode(true);
 		} else {
-			document.body.classList.remove('body-dark');
+			document.body.classList.remove('dark');
 			setNightMode(false);
 		}
 	};
 
 	return (
-		<div className={!nightMode ? "header" : "header header-dark"}>
+		<header className={!nightMode ? 'header' : 'header dark'}>
 			{dropdown ?
 				<div className="canvas" onClick={() => {setDropdown(false)}} />
 			: null}
@@ -170,12 +170,12 @@ const Header = ({user, nightMode, setNightMode}) => {
 				</div>
 			</div>
 			{logInForm ?
-				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={true} nightMode={nightMode} />
+				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={true} />
 			: null}
 			{signUpForm ?
-				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={false} nightMode={nightMode} />
+				<LogIn setLogInForm={setLogInForm} setSignUpForm={setSignUpForm} logIn={false} />
 			: null}
-		</div>
+		</header>
 	);
 }
 

@@ -3,7 +3,7 @@ import "../styles/Footer.css";
 
 const Footer = ({nightMode}) => {
 	return (
-		<div className={!nightMode ? "footer" : "footer footer-dark"}>
+		<footer className={!nightMode ? 'footer' : 'footer dark'}>
             <div className="footer-content">
 			    <ul>
                     <li>About</li>
@@ -34,7 +34,7 @@ const Footer = ({nightMode}) => {
                     <li>Mod Policy</li>
                 </ul>
             </div>
-		</div>
+		</footer>
 	);
 }
 

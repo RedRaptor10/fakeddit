@@ -133,3 +133,12 @@
 .comment-btn:hover {
     background: rgba(26, 26, 27, 0.1);
 }
+
+/* Night Mode */
+main.dark .comment-author-poster {
+    color: rgb(128, 128, 255);
+}
+
+main.dark .comment-date {
+    color: rgb(215, 218, 220);
+}

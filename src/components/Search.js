@@ -34,7 +34,7 @@ const Search = ({nightMode}) => {
     }, [searchQuery]);
 
     return (
-        <div className={!nightMode ? "search" : "search search-dark"}>
+        <main className={!nightMode ? 'search' : 'search dark'}>
             <div className="search-results">
                 {posts.map((post, i) => {
                     return (
@@ -55,7 +55,7 @@ const Search = ({nightMode}) => {
                     );
                 })}
             </div>
-        </div>
+        </main>
     );
 }
 

@@ -66,11 +66,11 @@
 }
 
 /* Night Mode */
-.home-dark .home-sidebar-section {
+.home.dark .home-sidebar-section {
     background: rgb(26, 26, 27);
     color: rgb(215, 218, 220);
 }
 
-.home-dark .home-sidebar-section-header {
+.home.dark .home-sidebar-section-header {
     background: rgb(39, 39, 41);
 }

@@ -3,7 +3,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
 import { getFirestore, collection, query, where, getDocs, addDoc } from "firebase/firestore";
 import "../styles/LogIn.css";
 
-const LogIn = ({setLogInForm, setSignUpForm, logIn, nightMode}) => {
+const LogIn = ({setLogInForm, setSignUpForm, logIn}) => {
     const [form, setForm] = useState({
         email: '',
         username: '',
@@ -138,7 +138,7 @@ const LogIn = ({setLogInForm, setSignUpForm, logIn, nightMode}) => {
     };
 
     return (
-        <div className={!nightMode ? "log-in" : "log-in log-in-dark"}>
+        <div className="log-in">
             <div className="canvas log-in-canvas" />
             <div className="log-in-form-container">
                 <div className="log-in-form-close">

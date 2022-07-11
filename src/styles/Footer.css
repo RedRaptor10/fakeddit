@@ -1,4 +1,4 @@
-.footer {
+footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,12 +10,12 @@
     font-size: 14px;
 }
 
-.footer a {
+footer a {
     color: rgb(255, 255, 255);
 	text-decoration: none;
 }
 
-.footer a:hover {
+footer a:hover {
     text-decoration: underline;
 }
 
@@ -56,6 +56,6 @@
 }
 
 /* Night Mode */
-.footer-dark {
+footer.dark {
     background: rgb(58, 82, 89);
 }

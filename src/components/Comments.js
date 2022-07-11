@@ -4,7 +4,7 @@ import Sortbar from "./Sortbar";
 import Comment from "./Comment";
 import "../styles/Comments.css";
 
-const Comments = ({user, setUser, post, setPost, nightMode}) => {
+const Comments = ({user, setUser, post, setPost}) => {
     const [comments, setComments] = useState([]);
 
 	// Get comments from database on componentDidMount & componentDidUpdate
@@ -76,11 +76,11 @@ const Comments = ({user, setUser, post, setPost, nightMode}) => {
 
     return (
         <div className="comments">
-            <Sortbar comments={comments} setComments={setComments} nightMode={nightMode} />
+            <Sortbar comments={comments} setComments={setComments} />
             {comments.map((comment) => {
                 return (
                     <Comment key={comment.id} user={user} setUser={setUser} comment={comment} comments={comments}
-                        setComments={setComments} post={post} setPost={setPost} nightMode={nightMode} />
+                        setComments={setComments} post={post} setPost={setPost} />
                 );
             })}
         </div>

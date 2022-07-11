@@ -1,4 +1,4 @@
-.header {
+header {
 	display: flex;
 	align-items: center;
 	height: 48px;
@@ -11,7 +11,7 @@
 	user-select: none;
 }
 
-.header a {
+header a {
 	text-decoration: none;
 }
 
@@ -206,53 +206,53 @@
 }
 
 /* Night Mode */
-.header-dark {
+header.dark {
 	background: rgb(26, 26, 27);
 	border-bottom: 1px solid rgb(52, 53, 54);
 }
 
-.header-dark .header-title {
+header.dark .header-title {
 	color: rgb(215, 218, 220);
 }
 
-.header-dark .search-field {
+header.dark .search-field {
 	background: rgb(39, 39, 41);
 	color: rgb(215, 218, 220);
 	border: 1px solid rgb(52, 53, 54);
 }
 
-.header-dark .login-btn {
+header.dark .login-btn {
 	background: rgb(26, 26, 27);
 	color: rgb(215, 218, 220);
 	border: 1px solid rgb(215, 218, 220);
 }
 
-.header-dark .signup-btn, .header-dark .sample-btn {
+header.dark .signup-btn, header.dark .sample-btn {
 	background: rgb(215, 218, 220);
 	color: rgb(26, 26, 27);
 	border: 1px solid rgb(215, 218, 220);
 }
 
-.header-dark .header-username {
+header.dark .header-username {
 	color: rgb(215, 218, 220);
 }
 
-.header-dark .user-btn {
+header.dark .user-btn {
 	color: rgb(215, 218, 220);
 }
 
-.header-dark .user-dropdown-menu {
+header.dark .user-dropdown-menu {
 	background: rgb(26, 26, 27);
 }
 
-.header-dark .dropdown-item {
+header.dark .dropdown-item {
 	color: rgb(215, 218, 220);
 }
 
-.header-dark .night-mode-btn {
+header.dark .night-mode-btn {
 	background: rgb(0, 121, 211);
 }
 
-.header-dark .night-mode-btn-switch {
+header.dark .night-mode-btn-switch {
 	left: 12px;
 }

@@ -3,6 +3,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    min-height: 100vh;
 }
 
 .search-results {
@@ -33,6 +34,7 @@
 
 .search-result-subreddit a {
     color: rgb(0, 0, 0);
+    font-weight: bold;
     text-decoration: none;
 }
 
@@ -58,10 +60,15 @@
 }
 
 /* Night Mode */
-.search-dark .search-result {
+.search.dark .search-result {
     background: rgb(26, 26, 27);
 }
 
-.search-dark .search-result a {
+.search.dark .search-result a {
+    color: rgb(215, 218, 220);
+}
+
+.search.dark .search-result-author, .search.dark .search-result-date,
+.search.dark .search-result-upvotes, .search.dark .search-result-comments {
     color: rgb(215, 218, 220);
 }

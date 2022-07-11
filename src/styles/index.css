@@ -6,6 +6,6 @@ body {
 	font-family: Sans-serif;
 }
 
-.body-dark {
+body.dark {
 	background: rgb(0, 0, 0);
 }
