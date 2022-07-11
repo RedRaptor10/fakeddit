@@ -55,6 +55,7 @@ const Search = ({nightMode}) => {
                     );
                 })}
             </div>
+            <div>No more results.</div>
         </main>
     );
 }
