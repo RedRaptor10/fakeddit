@@ -13,8 +13,9 @@ const Search = ({nightMode}) => {
     useEffect(() => {
         const getPosts = async () => {
             const db = getFirestore();
-            /* To search with prefixes, add '\uf8ff', which is a high code point in Unicode that comes after every character.
-                This allows the query to match all values that start with searchQuery. */
+            // To search with prefixes, add '\uf8ff', which is a high code point in Unicode that comes after every character.
+            // This allows the query to match all values that start with searchQuery.
+            // NOTE: Firebase has a limitation that prevents case-insensitive querying.
             const q = query(collection(db, "posts"), where("title", ">=", searchQuery), where ("title", "<=", searchQuery + "\uf8ff"));
             const querySnapshot = await getDocs(q);
             const temp = [];
