@@ -11,7 +11,7 @@ footer {
 }
 
 footer a {
-    color: rgb(255, 255, 255);
+    color: #fff;
 	text-decoration: none;
 }
 
@@ -25,12 +25,11 @@ footer a:hover {
 
 .footer-content ul {
     list-style-type: none;
-    margin-left: 12px;
-    margin-right: 12px;
+    margin: 0 12px;
 }
 
 .footer-content ul li {
-    color: rgb(255, 255, 255);
+    color: #fff;
     text-decoration: none;
     padding: 12px;
     cursor: pointer;

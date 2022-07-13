@@ -11,7 +11,7 @@
 .subreddit-header {
     display: flex;
     justify-content: center;
-    background: rgb(255, 255, 255);
+    background: #fff;
     margin-bottom: 12px;
 }
 
@@ -24,7 +24,7 @@
     background: rgb(237, 239, 241);
     width: 72px;
     height: 72px;
-    border: 4px solid rgb(255, 255, 255);
+    border: 4px solid #fff;
     border-radius: 100%;
 }
 
@@ -40,8 +40,7 @@
 
 .subreddit-body {
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     width: 50%;
 }
 

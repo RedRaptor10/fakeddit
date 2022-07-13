@@ -4,9 +4,8 @@ header {
 	height: 48px;
 	position: sticky;
 	top: 0;
-	padding-left: 12px;
-	padding-right: 12px;
-	background: rgb(255, 255, 255);
+	padding: 0 12px;
+	background: #fff;
 	border-bottom: 1px solid rgb(237, 239, 241);
 	user-select: none;
 }
@@ -35,7 +34,7 @@ header a {
 
 .header-title {
 	margin-left: 24px;
-	color: rgb(0, 0, 0);
+	color: #000;
 	font-size: 24px;
 }
 
@@ -48,7 +47,7 @@ header a {
 }
 
 .search-box:hover, .search-box input:focus {
-	background: rgb(255, 255, 255);
+	background: #fff;
 }
 
 .search-box form {
@@ -70,7 +69,7 @@ header a {
 }
 
 .search-box input:focus {
-	background: rgb(255, 255, 255);
+	background: #fff;
 	border-radius: 4px;
 }
 
@@ -91,7 +90,7 @@ header a {
 }
 
 .login-btn {
-	background: rgb(255, 255, 255);
+	background: #fff;
 	color: rgb(0, 121, 211);
 	border: 1px solid rgb(0, 121, 211);
 	cursor: pointer;
@@ -103,7 +102,7 @@ header a {
 
 .signup-btn, .sample-btn {
 	background: rgb(0, 121, 211);
-	color: rgb(255, 255, 255);
+	color: #fff;
 	border: 1px solid rgb(0, 121, 211);
 	cursor: pointer;
 }
@@ -125,7 +124,7 @@ header a {
 	padding: 2px 0;
 	min-width: 64px;
 	min-height: 32px;
-	color: rgb(0, 0, 0);
+	color: #000;
 	cursor: pointer;
 }
 .user-btn:hover {
@@ -145,16 +144,16 @@ header a {
 
 .user-dropdown-menu {
 	position: fixed;
+	background: #fff;
 	width: 192px;
+	max-height: 80%;
 	top: 48px;
 	right: 12px;
-	background: rgb(255, 255, 255);
+	padding-top: 6px;
 	border: 1px solid rgb(237, 239, 241);
 	border-top: 0;
 	border-radius: 0 0 4px 4px;
 	box-shadow: none;
-	padding-top: 6px;
-	max-height: 80%;
 }
 
 .canvas {
@@ -191,7 +190,7 @@ header a {
 
 .dropdown-item:hover {
 	background: rgb(0, 121, 211);
-	color: rgb(255, 255, 255);
+	color: #fff;
 }
 
 .dropdown-item .svg-inline--fa {
@@ -213,7 +212,7 @@ header a {
 }
 
 .night-mode-btn-switch {
-	background-color: rgb(255, 255, 255);
+	background-color: #fff;
 	position: relative;
 	left: 0;
 	width: 57%;

@@ -15,7 +15,7 @@
 
 .log-in-form-container {
     position: fixed;
-    background: rgb(255, 255, 255);
+    background: #fff;
     width: 40%;
     border-radius: 4px;
 }
@@ -62,7 +62,7 @@
 
 .log-in-form-submit-btn {
     background: rgb(0, 121, 211);
-    color: rgb(255, 255, 255);
+    color: #fff;
     font-size: 14px;
     font-weight: bold;
     border: 0;
@@ -75,8 +75,7 @@
 }
 
 .log-in-form-bottom div {
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin: 12px 0;
 }
 
 .error-msg {
