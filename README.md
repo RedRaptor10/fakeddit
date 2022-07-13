@@ -6,6 +6,10 @@ A clone of a popular social media website. Created with React using Firebase bac
 
 ![Fakeddit](/src/assets/preview.jpg)
 
+# Instructions
+
+To use the app, click on "Use a Sample Account" or create your own account.
+
 # Features
 
 - Create / delete account
@@ -26,9 +30,3 @@ A clone of a popular social media website. Created with React using Firebase bac
 - JavaScript
 - HTML
 - CSS
-
-# To Do
-- Fix post header votes
-- Improve post previews
-- Add filter / sort search results
-- Add autocomplete / search suggestions
