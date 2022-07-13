@@ -110,14 +110,6 @@ const Header = ({user, nightMode, setNightMode}) => {
 			: null}
 			<div className="header-left">
 				<Link to="/">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" className="logo">
-						<g>
-							<circle fill="#FF4500" cx="10" cy="10" r="10"></circle>
-							<path fill="#FFFFFF" d="M6.83 8.24h1.64V6.65A4.26 4.26 0 0 1 9 4.19 2.92 2.92 0 0 1 11.54 3a10.31 10.31 0 0 1 2.94.29l-.41 2.43a5.54 5.54 0 0 0-1.32-.2 1 1 0 0 0-1.21.87v1.85h2.62L14 10.61h-2.46v8.24H8.47v-8.24H6.83V8.24z"></path>
-						</g>
-					</svg>
-				</Link>
-				<Link to="/">
 					<div className="header-title">fakeddit</div>
 				</Link>
 			</div>

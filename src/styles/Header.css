@@ -33,14 +33,10 @@ header a {
 	margin-left: auto;
 }
 
-.logo {
-	width: 32px;
-	height: 32px;
-	padding: 8px 8px 8px 0;
-}
-
 .header-title {
+	margin-left: 24px;
 	color: rgb(0, 0, 0);
+	font-size: 24px;
 }
 
 .search-box {
