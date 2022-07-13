@@ -1,4 +1,4 @@
-.subreddit-sidebar {
+.sidebar {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,7 +6,7 @@
     margin-left: 12px;
 }
 
-.subreddit-sidebar-section {
+.sidebar-section {
     background: #fff;
     width: 100%;
     margin-bottom: 12px;
@@ -14,26 +14,26 @@
     border-radius: 4px;
 }
 
-.subreddit-sidebar-section-header {
+.sidebar-section-header {
     padding: 12px;
     background: rgb(237, 239, 241);
     font-size: 12px;
     font-weight: bold;
 }
 
-.subreddit-sidebar-section-content {
+.sidebar-section-content {
     padding: 12px;
 }
 
-.subreddit-sidebar-section-content-description {
+.sidebar-section-content-description {
     font-size: 14px;
 }
 
-.subreddit-sidebar-section-content-members {
+.sidebar-section-content-members {
     display: flex;
 }
 
-.subreddit-sidebar-section-content-members-section {
+.sidebar-section-content-members-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,24 +42,24 @@
     font-size: 12px;
 }
 
-.subreddit-sidebar-section-content-members-number {
+.sidebar-section-content-members-number {
     font-size: 18px;
 }
 
-.subreddit-sidebar-section-content-created {
+.sidebar-section-content-created {
     padding: 8px 8px 8px 0;
     font-size: 14px;
 }
 
-.subreddit-sidebar-section-content-created .svg-inline--fa {
+.sidebar-section-content-created .svg-inline--fa {
     margin-right: 8px;
 }
 
-.subreddit-sidebar-section-create a {
+.sidebar-section-create a {
     text-decoration: none;
 }
 
-.subreddit-sidebar-section-create-btn {
+.sidebar-section-create-btn {
     border-radius: 4px;
     text-align: center;
     padding: 8px;
@@ -67,13 +67,13 @@
     text-decoration: none;
 }
 
-.subreddit-sidebar-section-flairs {
+.sidebar-section-flairs {
     display: flex;
     flex-wrap: wrap;
     padding: 8px;
 }
 
-.subreddit-sidebar-section-flair {
+.sidebar-section-flair {
     background: rgb(237, 239, 241);
     margin: 4px;
     padding: 4px;
@@ -84,25 +84,25 @@
     cursor: pointer;
 }
 
-.subreddit-sidebar-section-flair a {
+.sidebar-section-flair a {
     color: initial;
     text-decoration: none;
 }
 
-.subreddit-sidebar-section-flair-active, .subreddit-sidebar-section-flair-active a {
+.sidebar-section-flair-active, .sidebar-section-flair-active a {
     color: rgb(0, 121, 211);
 }
 
 /* Night Mode */
-main.dark .home-sidebar-section-content, main.dark .subreddit-sidebar-section {
+main.dark .home-sidebar-section-content, main.dark .sidebar-section {
     background: rgb(26, 26, 27);
     color: rgb(215, 218, 220);
 }
 
-main.dark .subreddit-sidebar-section-flair {
+main.dark .sidebar-section-flair {
     background: rgb(39, 39, 41);
 }
 
-main.dark .subreddit-sidebar-section-flair a {
+main.dark .sidebar-section-flair a {
     color: rgb(215, 218, 220);
 }

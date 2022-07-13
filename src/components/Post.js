@@ -4,7 +4,7 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import PostBox from "./PostBox";
 import Reply from "./Reply";
 import Comments from "./Comments";
-import SubSidebar from "./SubSidebar";
+import Sidebar from "./Sidebar";
 import { SubredditContext } from "./subredditContext";
 import formatNumber from "../functions/formatNumber";
 import "../styles/Post.css";
@@ -79,7 +79,7 @@ const Post = ({user, setUser}) => {
                         <Reply user={user} post={post} setPost={setPost} parent='' />
                         <Comments user={user} setUser={setUser} post={post} setPost={setPost} />
                     </div>
-                    <SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors}
+                    <Sidebar user={user} slug={slug} subreddit={subreddit} colors={colors}
                         activeFlairs={activeFlairs} pickFlair={pickFlair} postPage={true} />
                 </div>
             </div>

@@ -3,7 +3,7 @@ import { useParams, Outlet } from "react-router-dom";
 import { getFirestore, collection, query, where, doc, getDoc, getDocs } from "firebase/firestore";
 import Sortbar from "./Sortbar";
 import PostBox from "./PostBox";
-import SubSidebar from "./SubSidebar";
+import Sidebar from "./Sidebar";
 import { SubredditContext } from "./subredditContext"; // Import Context allows passing of props to child Post component
 import "../styles/Subreddit.css";
 
@@ -129,7 +129,7 @@ const Subreddit = ({user, setUser, nightMode}) => {
 					: null
 					}
 				</div>
-				<SubSidebar user={user} slug={slug} subreddit={subreddit} colors={colors}
+				<Sidebar user={user} slug={slug} subreddit={subreddit} colors={colors}
 					activeFlairs={activeFlairs} pickFlair={pickFlair} />
 			</div>
 			<SubredditContext.Provider value={{subreddit, colors, posts, setPosts, activeFlairs, pickFlair}}>
