@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword, signOut, deleteUser } from "firebase/auth";
 import { getFirestore, collection, query, where, getDocs, doc, deleteDoc, updateDoc, deleteField } from "firebase/firestore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass, faUser, faCircleUser, faMoon } from "@fortawesome/free-solid-svg-icons";
 import LogIn from "./LogIn";
 import '../styles/Header.css';
 
@@ -122,6 +124,7 @@ const Header = ({user, nightMode, setNightMode}) => {
 			<div className="header-center">
 				<div className="search-box">
 					<form>
+						<FontAwesomeIcon icon={faMagnifyingGlass} />
 						<input className="search-field" type="search" placeholder="Search Fakeddit" onChange={handleInput} onKeyDown={submitSearch}></input>
 					</form>
 				</div>
@@ -137,30 +140,39 @@ const Header = ({user, nightMode, setNightMode}) => {
 					<div className="header-username">{user.username}</div>
 				}
 				<div className="user-btn" onClick={() => {setDropdown(true)}}>
-					<div className="user-dropdown-btn"></div>
+					<div className="user-dropdown-btn">
+						<FontAwesomeIcon icon={faUser} />
+					</div>
 					{dropdown ?
 						<div className="user-dropdown-menu">
 							<div className="dropdown-header">VIEW OPTIONS</div>
 							<div className="dropdown-item" onClick={toggleNightMode}>
-								Night Mode
+								<FontAwesomeIcon icon={faMoon} />
+								<span>Night Mode</span>
 								<button className="night-mode-btn" type="button">
 									<div className="night-mode-btn-switch" />
 								</button>
 							</div>
 							<div className="dropdown-header">MORE STUFF</div>
-							<div className="dropdown-item">Coins</div>
-							<div className="dropdown-item">Premium</div>
-							<div className="dropdown-item">Powerups</div>
-							<div className="dropdown-item">Talk</div>
-							<div className="dropdown-item">Predictions</div>
-							<div className="dropdown-item">Help Center</div>
+							<div className="dropdown-item"><span>Coins</span></div>
+							<div className="dropdown-item"><span>Premium</span></div>
+							<div className="dropdown-item"><span>Powerups</span></div>
+							<div className="dropdown-item"><span>Talk</span></div>
+							<div className="dropdown-item"><span>Predictions</span></div>
+							<div className="dropdown-item"><span>Help Center</span></div>
 							{user ?
-								<div className="dropdown-item" onClick={logOut}>Log Out</div>
+								<div className="dropdown-item" onClick={logOut}>
+									<FontAwesomeIcon icon={faCircleUser} />
+									<span>Log Out</span>
+								</div>
 							:
 								<div className="dropdown-item" onClick={() => {
 									setDropdown(false);
 									setLogInForm(true);
-								}}>Log In / Sign Up</div>
+								}}>
+									<FontAwesomeIcon icon={faCircleUser} />
+									<span>Log In / Sign Up</span>
+								</div>
 							}
 							{user && user.username !== sampleAccount.username ?
 								<div className="dropdown-item" onClick={deleteAccount}>Delete Account</div>

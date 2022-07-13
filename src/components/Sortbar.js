@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFire, faArrowUpFromWaterPump, faArrowUpFromGroundWater, faSun, faCloudSun } from "@fortawesome/free-solid-svg-icons";
 import { sortByHot, sortByBest, sortByTop, sortByDateNew, sortByDateOld, sortByControversial } from "../functions/sorts";
 import "../styles/Sortbar.css";
 
@@ -44,27 +46,27 @@ const Sortbar = ({posts, setPosts, comments, setComments}) => {
                     if (sortTypePosts !== 'hot') {
                         sort('hot');
                     }
-                }}>Hot</div>
+                }}><FontAwesomeIcon icon={faFire} />Hot</div>
                 <div className={`sortbar-btn ${sortTypePosts === 'best' ? `sortbar-btn-active` : ''}`} onClick={() => {
                     if (sortTypePosts !== 'best') {
                         sort('best');
                     }
-                }}>Best</div>
+                }}><FontAwesomeIcon icon={faArrowUpFromWaterPump} />Best</div>
                 <div className={`sortbar-btn ${sortTypePosts === 'top' ? `sortbar-btn-active` : ''}`} onClick={() => {
                     if (sortTypePosts !== 'top') {
                         sort('top');
                     }
-                }}>Top</div>
+                }}><FontAwesomeIcon icon={faArrowUpFromGroundWater} />Top</div>
                 <div className={`sortbar-btn ${sortTypePosts === 'new' ? `sortbar-btn-active` : ''}`} onClick={() => {
                     if (sortTypePosts !== 'new') {
                         sort('new');
                     }
-                }}>New</div>
+                }}><FontAwesomeIcon icon={faSun} />New</div>
                 <div className={`sortbar-btn ${sortTypePosts === 'old' ? `sortbar-btn-active` : ''}`} onClick={() => {
                     if (sortTypePosts !== 'old') {
                         sort('old');
                     }
-                }}>Old</div>
+                }}><FontAwesomeIcon icon={faCloudSun} />Old</div>
             </div>
         :
             <div className="sortbar-comments">

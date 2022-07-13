@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import secondsToDate from "../functions/secondsToDate";
 import formatNumber from "../functions/formatNumber";
 import "../styles/SubSidebar.css";
@@ -31,6 +33,7 @@ const SubSidebar = ({ user, slug, subreddit, colors, activeFlairs, pickFlair, po
                         </div>
                     </div>
                     <div className="subreddit-sidebar-section-content-created">
+                        <FontAwesomeIcon icon={faCalendar} />
                         Created {secondsToDate(created.seconds)}
                     </div>
                     {user ?

@@ -51,6 +51,10 @@
     font-size: 14px;
 }
 
+.subreddit-sidebar-section-content-created .svg-inline--fa {
+    margin-right: 8px;
+}
+
 .subreddit-sidebar-section-create a {
     text-decoration: none;
 }

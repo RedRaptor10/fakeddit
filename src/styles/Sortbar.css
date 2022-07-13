@@ -19,6 +19,10 @@
     cursor: pointer;
 }
 
+.sortbar-btn .svg-inline--fa {
+    margin-right: 8px;
+}
+
 .sortbar-btn-active {
     color: rgb(0, 121, 211) !important;
 }

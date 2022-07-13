@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Navigate, Link } from "react-router-dom";
 import { getFirestore, doc, updateDoc, deleteField, deleteDoc } from "firebase/firestore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMessage } from "@fortawesome/free-solid-svg-icons";
 import formatNumber from "../functions/formatNumber";
 import getElapsedTime from "../functions/getElapsedTime";
 import "../styles/PostBox.css";
@@ -186,6 +188,7 @@ const PostBox = ({user, setUser, propSlug, post, setPost, posts, setPosts, activ
                     <div className="post-box-text">{post.text}</div>
                     <div className="post-box-btns-container">
                         <Link to={`/r/${slug}/comments/${post.id}/${post.title}`} className="post-box-btn">
+                            <FontAwesomeIcon icon={faMessage} />
                             {post.comments} {post.comments === 1 ? 'comment' : 'comments'}</Link>
                         {user && post.author === user.username ?
                             <div className="post-box-btn" onClick={deletePost}>Delete</div>

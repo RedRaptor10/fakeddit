@@ -44,23 +44,38 @@ header a {
 }
 
 .search-box {
-	width: 100%;
-	height: 36px;
-}
-
-.search-field {
 	background: rgb(246, 247, 248);
 	width: 100%;
 	height: 36px;
-	color: rgb(0, 0, 0);
 	border: 1px solid rgb(237, 239, 241);
 	border-radius: 4px;
-	border-style: solid;
-	padding-left: 12px;
 }
 
-.search-field:hover, .search-field:focus {
+.search-box:hover, .search-box input:focus {
 	background: rgb(255, 255, 255);
+}
+
+.search-box form {
+	display: flex;
+	align-items: center;
+}
+
+.search-box .svg-inline--fa {
+	position: absolute;
+	margin: 0 8px;
+}
+
+.search-box input {
+	background: none;
+	width: 100%;
+	height: 36px;
+	border: 0;
+	padding-left: 32px;
+}
+
+.search-box input:focus {
+	background: rgb(255, 255, 255);
+	border-radius: 4px;
 }
 
 .header-btns-container {
@@ -121,15 +136,22 @@ header a {
 	border: 1px solid rgb(237, 239, 241);
 }
 
-.user-dropdown-btn::before {
+.user-dropdown-btn {
+	display: flex;
+	align-items: center;
+}
+
+.user-dropdown-btn::after {
 	content: "\2304";
+	margin-top: -12px;
 	font-size: 32px;
 }
 
 .user-dropdown-menu {
 	position: fixed;
-	top: 39.5px;
-	left: 1595px;
+	width: 192px;
+	top: 48px;
+	right: 12px;
 	background: rgb(255, 255, 255);
 	border: 1px solid rgb(237, 239, 241);
 	border-top: 0;
@@ -137,8 +159,6 @@ header a {
 	box-shadow: none;
 	padding-top: 6px;
 	max-height: 80%;
-	overflow-y: auto;
-	overflow-x: hidden;
 }
 
 .canvas {
@@ -150,13 +170,12 @@ header a {
 }
 
 .dropdown-header {
+	padding: 8px 12px;
 	color: rgb(125, 128, 140);
 	font-size: 10px;
 	font-weight: bold;
 	letter-spacing: 0.5px;
 	line-height: 12px;
-	text-transform: uppercase;
-	margin: 8px 0 4px 12px;
 }
 
 .dropdown-item {
@@ -165,19 +184,26 @@ header a {
 	position: relative;
 	width: 100%;
 	height: 40px;
-	margin-top: 4px;
-	margin-bottom: 4px;
-	padding: 0 16px 0 48px;
+	padding: 4px 16px;
 	color: rgb(0 ,0 ,0);
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 18px;
+	box-sizing: border-box;
 	cursor: pointer;
 }
 
 .dropdown-item:hover {
 	background: rgb(0, 121, 211);
 	color: rgb(255, 255, 255);
+}
+
+.dropdown-item .svg-inline--fa {
+	position: absolute;
+}
+
+.dropdown-item span {
+	margin-left: 24px;
 }
 
 .night-mode-btn {
@@ -215,10 +241,18 @@ header.dark .header-title {
 	color: rgb(215, 218, 220);
 }
 
-header.dark .search-field {
+header.dark .search-box {
 	background: rgb(39, 39, 41);
 	color: rgb(215, 218, 220);
 	border: 1px solid rgb(52, 53, 54);
+}
+
+header.dark .search-box input {
+	color: rgb(215, 218, 220);
+}
+
+header.dark .search-box:hover, header.dark .search-box input:focus {
+	background: rgb(48, 48, 49);
 }
 
 header.dark .login-btn {
