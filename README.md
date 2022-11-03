@@ -6,11 +6,32 @@ A clone of a popular social media website. Created with React using Firebase bac
 
 ![Fakeddit](/src/assets/preview.jpg)
 
-# Instructions
+## Instructions
 
-To use the app, click on "Use a Sample Account" or create your own account.
+1. To use the app, click on "Use a Sample Account" or create your own account.
+2. Browse the home page or individual subfakeddits and click on a post to view its contents.
+3. Logged in users can create, update, delete, or vote on posts/comments.
 
-# Features
+## Installation
+**Dependencies:** [React](https://reactjs.org/) (v17.0.2), [React Router](https://reactrouter.com/) (v6.0.2)
+
+Install Dependencies:
+
+`npm install react react-router-dom`
+
+## Testing
+
+Run Tests:
+
+`npm test`
+
+## Build
+
+Build Project:
+
+`npm start`
+
+## Features
 
 - Create / delete account
 - Log in / log out account
@@ -23,7 +44,7 @@ To use the app, click on "Use a Sample Account" or create your own account.
 - Filter posts by flairs
 - Search posts
 
-# Technologies
+## Technologies
 
 - React
 - Firebase
